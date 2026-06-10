@@ -357,6 +357,43 @@
             transition: width 1.8s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
+        .portfolio-item {
+    cursor: pointer;
+    outline: none;
+}
+
+.portfolio-item:focus {
+    outline: 2px solid #6366f1;
+}
+
+/* Popup */
+#imgPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#imgPopup img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+}
 
         /* SERVICES GRID */
         .services {
@@ -792,7 +829,7 @@ nav a {
 
 <header>
     <a href="#home" class="brand-logo">
-        <img src="yc logo.png" alt="YC Logo">
+        <img src="YC logo.png" alt="YC Logo">
         <h1>Yogesh <span>Creative</span></h1>
     </a>
     
@@ -989,39 +1026,57 @@ nav a {
     </div>
 </section>
 
-section id="portfolio" class="section">
-    <h2 class="hidden fade-up">Selected <span>Work Projects</span></h2>
-    <div class="divider hidden fade-up"></div>
-    
-    <div class="filter-container hidden fade-up">
-        <button class="filter-btn active" onclick="filterPortfolio('all', this)">All Projects</button>
-        <button class="filter-btn" onclick="filterPortfolio('branding', this)">Identity & Branding</button>
-        <button class="filter-btn" onclick="filterPortfolio('thumbnails', this)">Viral Thumbnails</button>
+<div class="portfolio">
+
+    <!-- Item 1 -->
+    <div class="portfolio-item" role="button" tabindex="0"
+        onclick="openImage(this)"
+        onkeydown="if(event.key==='Enter'){openImage(this)}">
+
+        <img src="pizza benner.png"
+             alt="Crazy Cheesy Pizza brand banner design">
+
+        <div class="portfolio-overlay">
+            <h3>Crazy Cheesy Pizza</h3>
+            <p>Identity & Brand Assets</p>
+        </div>
     </div>
-    
-    <div class="portfolio">
-        <div class="portfolio-item hidden zoom" data-category="branding">
-    <img src="pizza benner.png" alt="Web design project preview">
-            <div class="portfolio-overlay">
-                <h4>Crazy Cheesy Pizza</h4>
-                <p>Identity & Brand Assets</p>
-            </div>
-        </div>
 
-        <div class="portfolio-item hidden zoom" data-category="thumbnails">
-           <img src="Untitled-2.jpg" alt="Web design project preview">
-            <div class="portfolio-overlay">
-                <h4>Struggle Se Success Tak</h4>
-                <p>Viral CTR Optimization</p>
-            </div>
-        </div>
+    <!-- Item 2 -->
+    <div class="portfolio-item" role="button" tabindex="0"
+        onclick="openImage(this)"
+        onkeydown="if(event.key==='Enter'){openImage(this)}">
 
-        <div class="portfolio-item hidden zoom" data-category="branding">
-           <img src="web page.png" alt="Web design project preview">
-            <div class="portfolio-overlay">
-                <h4>Premium Social Asset System</h4>
-                <p>Vector Assets & Typography</p>
-            </div>
+        <img src="Untitled-2.jpg"
+             alt="Struggle Se Success YouTube thumbnail design">
+
+        <div class="portfolio-overlay">
+            <h3>Struggle Se Success Tak</h3>
+            <p>Viral CTR Optimization</p>
+        </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="portfolio-item" role="button" tabindex="0"
+        onclick="openImage(this)"
+        onkeydown="if(event.key==='Enter'){openImage(this)}">
+
+        <img src="web page.png"
+             alt="Premium Social Asset System web design project">
+
+        <div class="portfolio-overlay">
+            <h3>Premium Social Asset System</h3>
+            <p>Vector Assets & Typography</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Image Popup -->
+<div id="imgPopup" role="dialog" aria-label="Full image view">
+    <span class="close-btn" onclick="closeImage()" aria-label="Close image">&times;</span>
+    <img id="popupImg" alt="Expanded project image">
+</div>
         </div>
     </div>
 </section>
