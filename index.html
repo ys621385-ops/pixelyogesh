@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yogesh Creative | Dark Space Studio</title>
-    <meta name="google-site-verification" content="tnIokXDyk666fWrHuw5XjiCtEYoEOf1fc-UTsDWkm8k" />
+    <meta name="google-site-verification" content="7_N1Nkl_hOyBWqoaFb6-IUgVooHyp-OwlKILfdcov3c" />
 
     <style>
         /* GLOBAL CYBERPUNK DARK SYSTEM STYLES */
@@ -676,6 +676,53 @@
             gap: 15px; 
             z-index: 2000;
         }
+        /* 🔥 MENU BUTTON (3 lines) */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+/* 🔥 FULLSCREEN MENU */
+nav {
+  position: fixed;
+  inset: 0;
+  background: #06070a;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: 0.3s ease;
+  z-index: 9999;
+}
+
+nav.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* 🔥 MENU LINKS */
+nav a {
+  color: white;
+  font-size: 1.3rem;
+  margin: 15px 0;
+  text-decoration: none;
+}
 
         .float-btn {
             width: 58px;
@@ -701,85 +748,67 @@
         .show { opacity: 1; filter: blur(0); transform: translate(0) scale(1); }
 
         /* RESPONSIVE MEDIA SYSTEM */
-    @media (max-width: 968px) {
+        @media (max-width: 968px) {
+            header { padding: 15px 5%; }
+            .brand-logo img { width: 100px; }
+            .menu-toggle { display: flex; }
 
-    header { padding: 15px 5%; }
-    .brand-logo img { width: 100px; }
-    .menu-toggle { display: flex; }
+            nav {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+            
+                
+                height: 100vh;
+               
+                backdrop-filter: blur(30px);
+                -webkit-backdrop-filter: blur(30px);
+                transition: right 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+                z-index: 1001;
+                gap: 35px;
+            }
 
-    nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        max-width: 100%; /* ✅ EXTRA FIX */
-        height: 100vh;
-        background: rgba(6, 7, 10, 0.96);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
-        transition: right 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        z-index: 1001;
-        gap: 35px;
-        overflow-x: hidden;
-    }
-
-    nav.active { right: 0; }
-
-    nav a {
-        margin-left: 0;
-        font-size: 1.1rem;
-        letter-spacing: 2px;
-        color: #cbd5e1;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 70px 5% 50px;
-        gap: 45px;
-    }
-
-    .cosmic-sphere {
-        width: 260px; /* thoda kam kiya */
-        height: 260px;
-    }
-
-    .section {
-        padding: 70px 5%;
-    }
-
-    .contact-container,
-    .location-container {
-        padding: 20px;
-    }
-}
+         
+            
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 70px; padding-bottom: 50px; gap: 45px; }
+            .hero-left { text-align: center; }
+            .hero h2 { font-size: 3.2rem; }
+            .cosmic-sphere { width: 300px; height: 300px; }
+            
+            .skills-grid { grid-template-columns: 1fr; gap: 25px; }
+            .services { grid-template-columns: 1fr; }
+            .card.bento-wide { grid-column: span 1; }
+            .section { padding: 80px 5%; }
+            .portfolio { grid-template-columns: 1fr; }
+            .contact-container { padding: 35px; }
+            .location-container { grid-template-columns: 1fr; padding: 25px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <a href="#home" class="brand-logo">
-        <img src="yc logo.png" alt="yc Logo">
+        <img src="YC logo.png" alt="YC Logo">
         <h1>Yogesh <span>Creative</span></h1>
     </a>
     
-    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <button class="menu-toggle" id="mobileMenuBtn">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
-    <nav id="navWorkspace">
-        <a href="#home" onclick="closeMobileMenu()">Welcome</a>
-        <a href="#skills" onclick="closeMobileMenu()">Skills Workspace</a>
-        <a href="#services" onclick="closeMobileMenu()">Digital Studio</a>
-        <a href="#portfolio" onclick="closeMobileMenu()">Selected Portfolio</a>
-    <a href="#contact" onclick="closeMobileMenu()">Contact Workspace</a>
-    </nav>
+<nav id="navWorkspace">
+  <a href="#home" onclick="closeMobileMenu()">Welcome</a>
+  <a href="#skills" onclick="closeMobileMenu()">Skills Workspace</a>
+  <a href="#services" onclick="closeMobileMenu()">Digital Studio</a>
+  <a href="#portfolio" onclick="closeMobileMenu()">Selected Portfolio</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact Workspace</a>
+</nav>
 </header>
 
 <div class="floating-buttons-container">
