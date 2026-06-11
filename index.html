@@ -56,13 +56,6 @@
             z-index: 1002;
         }
 
-        .brand-logo img {
-            width: 120px; 
-            height: auto;
-            display: block;
-            filter: drop-shadow(0px 0px 12px var(--purple-glow)); 
-        }
-
         .brand-logo h1 {
             font-size: 1.15rem;
             font-weight: 700;
@@ -77,12 +70,13 @@
             -webkit-text-fill-color: transparent;
         }
 
-        nav {
+        /* Desktop Navigation System */
+        .nav-menu {
             display: flex;
             align-items: center;
         }
 
-        nav a {
+        .nav-menu a {
             color: #94a3b8;
             margin-left: 40px; 
             text-decoration: none;
@@ -91,13 +85,16 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
         }
 
-        nav a:hover {
+        .nav-menu a:hover {
             color: #ffffff;
             text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
         }
 
+        /* Mobile Premium Widget Drawer Menu Trigger */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -107,7 +104,7 @@
             background: transparent;
             border: none;
             cursor: pointer;
-            z-index: 1002;
+            z-index: 10002;
         }
 
         .menu-toggle span {
@@ -199,6 +196,24 @@
             align-items: center;
             position: relative;
             z-index: 2;
+        }
+
+        /* Cosmic Sphere */
+        .cosmic-sphere {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #d8b4fe 0%, #a855f7 40%, #6b21a8 85%, #4c1d95 100%); 
+            box-shadow: 0 0 80px rgba(168, 85, 247, 0.5), 
+                        inset -25px -25px 60px rgba(0, 0, 0, 0.9),
+                        inset 25px 25px 50px rgba(255, 255, 255, 0.4);
+            animation: cosmicRotate 12s infinite linear;
+        }
+
+        @keyframes cosmicRotate {
+            0% { transform: rotate(0deg) translateY(0px); }
+            50% { transform: rotate(180deg) translateY(-10px); }
+            100% { transform: rotate(360deg) translateY(0px); }
         }
 
         /* 🪐 NEON INFOBAR */
@@ -319,48 +334,6 @@
             box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
 
-        /* 🖼️ PORTFOLIO POPUP VIEW SYSTEM */
-        .portfolio-item {
-            overflow: hidden;
-            position: relative;
-            aspect-ratio: 16/10;
-            border: 1px solid var(--border-glow);
-            border-radius: 12px;
-            background: #0f1017;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .portfolio-item:focus { outline: 2px solid #6366f1; }
-
-        #imgPopup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-
-        #imgPopup img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 35px;
-            color: #fff;
-            cursor: pointer;
-        }
-
         /* 🛠️ SERVICES GRID */
         .services {
             display: grid;
@@ -404,170 +377,6 @@
         .card .icon { font-size: 1.7rem; margin-bottom: 22px; display: block; }
         .card h3 { color: #ffffff; margin-bottom: 12px; font-size: 1.25rem; font-weight: 600; }
         .card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.7; }
-
-        /* 🎨 NEON FILTER SYSTEM */
-        .filter-container {
-            margin-bottom: 55px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(168, 85, 247, 0.2);
-            color: #94a3b8;
-            padding: 11px 30px;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            border-color: #ffffff;
-            color: #050508;
-            background: #ffffff;
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
-        }
-
-        .portfolio {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 30px;
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(6, 7, 10, 0.95));
-            padding: 28px;
-            transform: translateY(100%);
-            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-            text-align: left;
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            transform: translateY(0);
-        }
-
-        .portfolio-overlay h4 {
-            color: #ffffff;
-            font-size: 1.15rem;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .portfolio-overlay p {
-            color: var(--gold-accent);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .portfolio img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .portfolio-item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* VIDEO SHOWCASE */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
-            gap: 30px;
-        }
-
-       /* 🎬 VIDEO CARD WORKSPACE */
-        .video-card {
-            background: #0f1017;
-            border: 1px solid var(--border-glow);
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-        
-        .video-card.vertical { aspect-ratio: 9/16; max-width: 315px; margin: 0 auto; }
-        .video-card.horizontal { aspect-ratio: 16/9; }
-
-        .video-card:hover {
-            border-color: rgba(168, 85, 247, 0.35);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.12);
-        }
-
-        .video-thumbnail-wrapper { width: 100%; height: 100%; position: relative; }
-        .video-thumbnail-wrapper img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transition: opacity 0.3s; }
-        .video-card:hover .video-thumbnail-wrapper img { opacity: 0.8; }
-
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-        }
-
-        .video-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); background: var(--purple-neon); }
-        .play-btn svg { width: 20px; height: 20px; fill: #050508; transition: fill 0.3s; }
-        .video-card:hover .play-btn svg { fill: #ffffff; }
-
-        .video-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 22px;
-            background: linear-gradient(transparent, rgba(6, 7, 10, 0.95));
-            text-align: left;
-        }
-        .video-info h3 { font-size: 1.05rem; color: #ffffff; margin-bottom: 2px; }
-        .video-info p { color: #94a3b8; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; }
-
-        /* 🍿 VIDEO MODAL LIGHTBOX SYSTEM */
-        .video-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(5, 6, 10, 0.98);
-            z-index: 3000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-            padding: 20px;
-        }
-
-        .video-modal.active { opacity: 1; pointer-events: auto; }
-        .modal-container { width: 100%; max-width: 950px; aspect-ratio: 16/9; background: #000; position: relative; border: 1px solid rgba(168, 85, 247, 0.2); }
-        .video-modal.shorts-active .modal-container { max-width: 390px; aspect-ratio: 9/16; }
-        .modal-container iframe { width: 100%; height: 100%; border: none; }
-        .close-modal { position: absolute; top: -38px; right: 0; color: #ffffff; font-size: 1.1rem; cursor: pointer; letter-spacing: 1.5px; }
 
         /* ✉️ CONTACT FORM WORKSPACE */
         .contact-container {
@@ -627,39 +436,6 @@
             transform: translateY(-2px);
         }
 
-        .contact-info {
-            margin-top: 38px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            color: #94a3b8;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(168, 85, 247, 0.15);
-            padding-top: 28px;
-        }
-
-        /* 📍 LOCATION BOX */
-        .location-container {
-            max-width: 1000px;
-            margin: 40px auto 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            text-align: left;
-            background: var(--bg-card);
-            border: 1px solid var(--border-glow);
-            padding: 40px;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .location-info h3 { color: #ffffff; font-size: 1.3rem; margin-bottom: 15px; letter-spacing: 1.5px; }
-        .location-info h3 span { color: var(--gold-accent); }
-        .location-info p { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; }
-        .map-box { width: 100%; height: 245px; border: 1px solid rgba(168, 85, 247, 0.15); background: #0f1017; border-radius: 8px; overflow: hidden; }
-
         /* 📱 FLOATING ACTION SYSTEM */
         .floating-buttons-container {
             position: fixed;
@@ -669,142 +445,6 @@
             flex-direction: column;
             gap: 15px; 
             z-index: 2000;
-        }
-
-        /* 🔘 PREMIUM HIGHLIGHTED WIDGET MENU */
-        .menu-toggle {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 10000;
-            background: transparent;
-            border: none;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            position: fixed;
-            top: 90px;                  
-            right: 25px;                
-            width: 320px;               
-            height: auto;               
-            max-height: calc(100vh - 140px);
-            background: rgba(6, 7, 10, 0.92); 
-            border: 2px solid #a855f7;
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.4),
-                        inset 0 0 20px rgba(168, 85, 247, 0.2);
-            border-radius: 20px;        
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center;        
-            padding: 55px 35px;         
-            gap: 30px;                  
-            visibility: hidden;
-            pointer-events: none;
-            opacity: 0;
-            transform: translate3d(40px, -20px, 0) scale(0.8) rotate(4deg); 
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                        opacity 0.4s ease, 
-                        visibility 0.4s;
-            z-index: 9999;
-            transform-origin: top right;
-        }
-
-        nav::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            right: 22px;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 10px solid #a855f7;
-            z-index: 10000;
-        }
-
-        nav.active {
-            visibility: visible;
-            pointer-events: auto;
-            opacity: 1;
-            transform: translate3d(0, 0, 0) scale(1) rotate(0deg); 
-        }
-
-        nav a {
-            color: #ffffff;             
-            font-size: 1.4rem;          
-            font-weight: 900;           
-            margin: 0;
-            text-decoration: none;
-            letter-spacing: 3px;        
-            text-transform: uppercase;
-            text-align: center;         
-            width: 100%;
-            position: relative;
-            padding: 8px 0;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 3px; 
-            background: linear-gradient(90deg, transparent, #a855f7, #c084fc, transparent);
-            box-shadow: 0 0 12px #a855f7;
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #f3e8ff; 
-            transform: scale(1.15); 
-            text-shadow: 0 0 15px #a855f7, 
-                         0 0 30px rgba(168, 85, 247, 0.6); 
-        }
-
-        nav a:hover::after {
-            width: 90%;
-            left: 5%;
-        }
-
-        /* 🪐 3D COSMIC SPHERE ZOOM EFFECT */
-        body.menu-open .cosmic-sphere {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1.4) !important; 
-            width: 320px;
-            height: 320px;
-            z-index: 9991; 
-            background: radial-gradient(circle at 35% 35%, #d8b4fe 0%, #a855f7 40%, #6b21a8 85%, #4c1d95 100%); 
-            box-shadow: 0 0 100px rgba(168, 85, 247, 0.9), 
-                        inset -25px -25px 60px rgba(0, 0, 0, 0.9),
-                        inset 25px 25px 50px rgba(255, 255, 255, 0.4);
-            pointer-events: none;
-            animation: cosmicFloat 6s infinite ease-in-out alternate !important; 
-        }
-
-        @keyframes cosmicFloat {
-            0% {
-                transform: translate(-50%, -53%) scale(1.3) rotate(0deg);
-                box-shadow: 0 0 80px rgba(168, 85, 247, 0.7);
-            }
-            100% {
-                transform: translate(-50%, -47%) scale(1.45) rotate(15deg);
-                box-shadow: 0 0 130px rgba(168, 85, 247, 1);
-            }
         }
 
         .float-btn {
@@ -820,393 +460,241 @@
 
         .float-btn:hover { transform: scale(1.1) translateY(-2px); }
         .whatsapp-btn { background-color: #25d366; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); }
-        .whatsapp-btn svg { width: 28px; height: 28px; fill: #ffffff; }
         .phone-btn { background: #ffffff; box-shadow: 0 8px 25px rgba(255,255,255,0.1); }
-        .phone-btn svg { width: 22px; height: 22px; fill: #050508; }
 
         /* ✨ ANIMATIONS SYSTEM */
         .hidden { opacity: 0; filter: blur(10px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .fade-up { transform: translateY(35px); }
-        .zoom { transform: scale(0.96); }
         .show { opacity: 1; filter: blur(0); transform: translate(0) scale(1); }
 
         /* 📱 RESPONSIVE MEDIA SYSTEM */
         @media (max-width: 968px) {
             header { padding: 15px 5%; }
-            .brand-logo img { width: 100px; }
+            .nav-menu { display: none; }
+            .menu-toggle { display: flex; }
             
-            nav {
-                top: 80px;
-                right: 15px;
-                width: calc(100% - 30px);
-                max-width: 340px;
-            }
-            
-           /* 📱 RESPONSIVE MEDIA SYSTEM (CONTINUED) */
-        @media (max-width: 968px) {
             .hero { grid-template-columns: 1fr; text-align: center; padding-top: 70px; padding-bottom: 50px; gap: 45px; }
             .hero-left { text-align: center; }
             .hero h2 { font-size: 3.2rem; }
-            .cosmic-sphere { width: 300px; height: 300px; }
             
             .skills-grid { grid-template-columns: 1fr; gap: 25px; }
             .services { grid-template-columns: 1fr; }
             .card.bento-wide { grid-column: span 1; }
             .section { padding: 80px 5%; }
-            .portfolio { grid-template-columns: 1fr; }
             .contact-container { padding: 35px; }
-            .location-container { grid-template-columns: 1fr; padding: 25px; }
         }
-
-        /* 🎬 PORTFOLIO ADDITIONAL STYLES */
-        .section-title { text-align: center; margin: 60px 0 30px; font-size: 1.5rem; letter-spacing: 2px; text-transform: uppercase; color: #ffffff; }
-        
-        .reels-grid { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 15px; 
-            max-width: 1200px; 
-            margin: 40px auto; 
-        }
-        .reel-card { aspect-ratio: 9/16; background: #111; border-radius: 8px; border: 1px solid #222; }
-
-        .video-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; 
-            max-width: 1200px; 
-            margin: 40px auto; 
-        }
-
-        @media (max-width: 768px) {
-            .reels-grid { grid-template-columns: repeat(2, 1fr); }
-            .video-grid { grid-template-columns: 1fr; }
-        }
-
-        /* 🖼️ IMAGE POPUP STYLES */
-        #imgPopup {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(5, 6, 10, 0.95); z-index: 4000;
-            display: none; align-items: center; justify-content: center; padding: 20px;
-        }
-        #imgPopup img { max-width: 90%; max-height: 85vh; border-radius: 8px; border: 1px solid rgba(168, 85, 247, 0.3); box-shadow: 0 0 30px rgba(168, 85, 247, 0.2); }
-        #imgPopup .close-btn { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 2.5rem; cursor: pointer; transition: color 0.3s; }
-        #imgPopup .close-btn:hover { color: #a855f7; }
     </style>
 </head>
 <body>
 
-            <div class="skill-item">
-                <div class="skill-info">
-                    <span class="skill-name">Adobe Illustrator</span>
-                    <span class="skill-percentage">70%</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" data-progress="70%"></div>
-                </div>
-            </div>
+    <header>
+        <a href="#" class="brand-logo">
+            <h1>Yogesh <span>Creative</span></h1>
+        </a>
+        <nav class="nav-menu">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="menu-toggle" id="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
 
-            <div class="skill-item">
-                <div class="skill-info">
-                    <span class="skill-name">Adobe Dimension (3D Compositing)</span>
-                    <span class="skill-percentage">80%</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" data-progress="80%"></div>
-                </div>
-            </div>
+    <section class="hero">
+        <div class="hero-left">
+            <span class="hero-mini-tag">Dark Space Studio Production</span>
+            <h2>Next Generation<strong>Digital Creation</strong></h2>
+            <a href="#contact" class="hero-cta">Enter Studio</a>
         </div>
-
-        <div class="skill-group-box hidden fade-up">
-            <h3>AI Engineering & Development</h3>
-            
-            <div class="skill-item">
-                <div class="skill-info">
-                    <span class="skill-name">Gemini AI Studio</span>
-                    <span class="skill-percentage">90%</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" data-progress="90%"></div>
-                </div>
-            </div>
-
-            <div class="skill-item">
-                <div class="skill-info">
-                    <span class="skill-name">ChatGPT Pro</span>
-                    <span class="skill-percentage">80%</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" data-progress="80%"></div>
-                </div>
-            </div>
-
-            <div class="skill-item">
-                <div class="skill-info">
-                    <span class="skill-name">VS Code (Development Environment)</span>
-                    <span class="skill-percentage">50%</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" data-progress="50%"></div>
-                </div>
-            </div>
-
-            <div class="skill-item">
-                <div class="skill-info">
-                    <span class="skill-name">Figma Interface Design</span>
-                    <span class="skill-percentage">50%</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" data-progress="50%"></div>
-                </div>
-            </div>
+        <div class="hero-right">
+            <div class="cosmic-sphere"></div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="services" class="section">
-    <h2 class="hidden fade-up">Our <span>Digital Studio Services</span></h2>
-    <div class="divider hidden fade-up"></div>
-    
-    <div class="services">
-        <div class="card bento-wide hidden fade-up">
-            <span class="icon">✒️</span>
-            <h3>Graphic Design & Branding Authority</h3>
-            <p>Stunning logos, cohesive visual identity systems, luxury packaging, and authority brand graphics that dominate.</p>
-        </div>
-        <div class="card hidden fade-up">
-            <span class="icon">💻</span>
-            <h3>Cyber-Aesthetic Web Design</h3>
-            <p>Bespoke responsive websites engineered with next-gen interactions, tailored for business growth and authority.</p>
-        </div>
-        <div class="card hidden fade-up">
-            <span class="icon">🎬</span>
-            <h3>Cinematic Deep Video Editing</h3>
-            <p>Professional video editing for viral Reels, high-converting cinematic product ads, and storytelling content polished to perfection.</p>
-        </div>
-        <div class="card bento-wide hidden fade-up">
-            <span class="icon">🤖</span>
-            <h3>Next-Gen AI Content Production</h3>
-            <p>Leveraging cutting-edge automated AI content and high-quality synthetic voiceovers to scale Creative reachable efforts.</p>
-        </div>
-    </div>
-</section>
-
-<section id="portfolio" class="section">
-    <h2 class="hidden fade-up">Selected <span>Portfolio Work</span></h2>
-    <div class="divider hidden fade-up"></div>
-
-    <div class="portfolio">
-        <div class="portfolio-item" role="button" tabindex="0" onclick="openImage(this)" onkeydown="if(event.key==='Enter'){openImage(this)}">
-            <img src="pizza benner.png" alt="Crazy Cheesy Pizza brand banner design">
-            <div class="portfolio-overlay">
-                <h3>Crazy Cheesy Pizza</h3>
-                <p>Identity & Brand Assets</p>
-            </div>
-        </div>
-
-        <div class="portfolio-item" role="button" tabindex="0" onclick="openImage(this)" onkeydown="if(event.key==='Enter'){openImage(this)}">
-            <img src="Untitled-2.jpg" alt="Struggle Se Success YouTube thumbnail design">
-            <div class="portfolio-overlay">
-                <h3>Struggle Se Success Tak</h3>
-                <p>Viral CTR Optimization</p>
-            </div>
-        </div>
-
-        <div class="portfolio-item" role="button" tabindex="0" onclick="openImage(this)" onkeydown="if(event.key==='Enter'){openImage(this)}">
-            <img src="web page.png" alt="Premium Social Asset System web design project">
-            <div class="portfolio-overlay">
-                <h3>Premium Social Asset System</h3>
-                <p>Vector Assets & Typography</p>
-            </div>
-        </div>
+    <div class="urgency-bar">
+        System Protocol Active: Producing <span>Visual Authority Content</span> Daily
     </div>
 
-    <h2 class="section-title">Short Reels</h2>
-    <div class="reels-grid">
-        <div class="reel-card" data-video="REEL_URL_1" onclick="openVideoModal(this, true)"></div>
-        <div class="reel-card" data-video="REEL_URL_2" onclick="openVideoModal(this, true)"></div>
-        <div class="reel-card" data-video="REEL_URL_3" onclick="openVideoModal(this, true)"></div>
-        <div class="reel-card" data-video="REEL_URL_4" onclick="openVideoModal(this, true)"></div>
-    </div>
+    <section id="about" class="section">
+        <h2 class="hidden fade-up">Creative <span>Tech Stack</span></h2>
+        <div class="divider hidden fade-up"></div>
+        
+        <div class="skills-grid">
+            <div class="skill-group-box hidden fade-up">
+                <h3>Visual Identity Design</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Adobe Illustrator</span>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" data-progress="70%"></div>
+                    </div>
+                </div>
 
-    <h2 class="section-title">Long Videos</h2>
-    <div class="video-grid">
-        <div class="video-card" data-video="VIDEO_URL_1" onclick="openVideoModal(this, false)"></div>
-        <div class="video-card" data-video="VIDEO_URL_2" onclick="openVideoModal(this, false)"></div>
-        <div class="video-card" data-video="VIDEO_URL_3" onclick="openVideoModal(this, false)"></div>
-    </div>
-</section>
-
-<div id="imgPopup" role="dialog" aria-label="Full image view">
-    <span class="close-btn" onclick="closeImage()" aria-label="Close image">×</span>
-    <img id="popupImg" src="" alt="Expanded project image">
-</div>
-
-<div class="video-modal" id="videoModal" onclick="closeVideoModal()">
-    <div class="modal-container" onclick="event.stopPropagation()">
-        <span class="close-modal" onclick="closeVideoModal()">✕ Close Window</span>
-        <iframe id="modalIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-</div>
-
-<section id="contact" class="section">
-    <h2 class="hidden fade-up">Secure Project <span> Brief Capture</span></h2>
-    <div class="divider hidden fade-up"></div>
-    
-    <div class="contact-container hidden fade-up" style="margin-bottom: 60px;">
-        <form id="creativeContactForm">
-            <div class="form-group">
-                <label for="name">Authority Full Name</label>
-                <input type="text" id="name" placeholder="Yogesh Creative" required>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Adobe Dimension (3D Compositing)</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" data-progress="80%"></div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="phone">Workspace Phone</label>
-                <input type="tel" id="phone" placeholder="+91 74091 05361" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Authority Email</label>
-                <input type="email" id="email" placeholder="ys621385@gmail.com" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Detailed Strategic Brief</label>
-                <textarea id="message" rows="5" placeholder="Define authority brand goals..." required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Submit Brief</button>
-        </form>
 
-        <div class="contact-info">
-            <span>✉️ ys621385@gmail.com</span>
-            <span>📞 +91 7409105361</span>
+            <div class="skill-group-box hidden fade-up">
+                <h3>AI Engineering & Development</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Gemini AI Studio</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" data-progress="90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">ChatGPT Pro</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" data-progress="80%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">VS Code (Development Environment)</span>
+                        <span class="skill-percentage">50%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" data-progress="50%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Figma Interface Design</span>
+                        <span class="skill-percentage">50%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" data-progress="50%"></div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2 class="hidden fade-up">Our <span>Digital Studio Services</span></h2>
+        <div class="divider hidden fade-up"></div>
+        
+        <div class="services">
+            <div class="card bento-wide hidden fade-up">
+                <span class="icon">✒️</span>
+                <h3>Graphic Design & Branding Authority</h3>
+                <p>Stunning logos, cohesive visual identity systems, luxury packaging, and authority brand graphics that dominate.</p>
+            </div>
+            <div class="card hidden fade-up">
+                <span class="icon">🎬</span>
+                <h3>High-Retention Video Production</h3>
+                <p>Dynamic storytelling layouts optimized entirely for modern vertical delivery formats like Reels and Shorts.</p>
+            </div>
+            <div class="card hidden fade-up">
+                <span class="icon">🧠</span>
+                <h3>AI-Driven Concept Generation</h3>
+                <p>Hyper-realistic historical rendering, prompt engineering frameworks, and advanced digital art assets.</p>
+            </div>
+            <div class="card bento-wide hidden fade-up">
+                <span class="icon">⚡</span>
+                <h3>Full-Scale Creative Direction</h3>
+                <p>End-to-end design planning from initial asset mapping to high-resolution deployment ready for launch.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="hidden fade-up">Initialize <span>A Project</span></h2>
+        <div class="divider hidden fade-up"></div>
+
+        <div class="contact-container hidden fade-up">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Identifier / Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Communications Node / Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your business email address">
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Parameters / Message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Describe your design objective or project scope..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Transmit Signal</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="floating-buttons-container">
+        <a href="https://wa.me/#" class="float-btn whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.296 1.48 4.795 1.481 5.429 0 9.849-4.414 9.853-9.84.002-2.63-1.023-5.101-2.885-6.964C16.549 1.968 14.09 .943 11.473.943c-5.436 0-9.856 4.417-9.86 9.848-.001 1.745.485 3.326 1.404 4.797l-.998 3.645 3.73-.977zm11.303-4.46c-.229-.115-1.353-.667-1.561-.744-.208-.077-.359-.115-.51.115-.152.23-.586.744-.719.897-.132.153-.265.172-.494.058-.229-.115-.967-.356-1.841-1.136-.68-.606-1.138-1.355-1.271-1.586-.133-.23-.014-.354.101-.469.103-.103.229-.268.344-.403.115-.134.153-.229.229-.383.076-.153.038-.288-.019-.403-.057-.115-.51-1.23-.699-1.687-.183-.441-.369-.381-.51-.388-.132-.007-.284-.008-.436-.008-.153 0-.403.058-.613.288-.21.23-.803.785-.803 1.916 0 1.13.822 2.222.936 2.376.115.153 1.618 2.47 3.92 3.465.548.238 1.036.393 1.396.507.55.175 1.051.15 1.447.09.44-.065 1.353-.552 1.543-1.073.19-.522.19-.968.133-1.063-.056-.095-.208-.152-.437-.267z"/></svg>
+        </a>
+        <a href="tel:#" class="float-btn phone-btn" aria-label="Call Studio Number">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </a>
     </div>
 
-    <div class="location-container hidden fade-up">
-        <div class="location-info">
-            <h3>Authority <span>Workstation Location</span></h3>
-            <p><strong>Location:</strong> Near J.D. Public School, Gali No. 1, Durga Park, Nasirpur, New Delhi, Delhi, 110045</p>
-            <p><strong>Operational Hours:</strong> 10:00 AM - 08:00 PM IST</p>
-            <p>Direct appointments can be secured for workstation design strategy discussion.</p>
-        </div>
-        <div class="map-box">
-            <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://maps.google.com/maps?q=Durga%20Park,%20Nasirpur,%20New%20Delhi&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
-        </div>
-    </div>
-</section>
+    <script>
+        // Toggle mobile drawer navigation mechanics
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
 
-<footer>
-    <p>© 2026 Yogesh Creative Studio Co. All authority brand rights reserved.</p>
-</footer>
-
-<script>
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const navWorkspace = document.getElementById('navWorkspace');
-
-// 🍔 MENU TOGGLE CORE ENGINE
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenuBtn.classList.toggle('active');
-    navWorkspace.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-});
-
-function closeMobileMenu() {
-    mobileMenuBtn.classList.remove('active');
-    navWorkspace.classList.remove('active');
-    document.body.classList.remove('menu-open');
-}
-
-// 🪐 DYNAMIC GLOW RADIAL ENGINE ON SCROLL
-window.addEventListener('scroll', () => {
-    const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-    
-    const glow1X = 10 + (scrollPercent * 30);  
-    const glow1Y = 20 + (scrollPercent * 50);  
-    const glow2X = 90 - (scrollPercent * 40);  
-    const glow2Y = 80 - (scrollPercent * 60);
-
-    const op1 = 0.08 + (scrollPercent * 0.04);
-    const op2 = 0.05 + (scrollPercent * 0.07);
-    const op3 = 0.02 + (scrollPercent * 0.03);
-
-    document.body.style.setProperty('--bg-glow-x1', `${glow1X}%`);
-    document.body.style.setProperty('--bg-glow-y1', `${glow1Y}%`);
-    document.body.style.setProperty('--bg-glow-x2', `${glow2X}%`);
-    document.body.style.setProperty('--bg-glow-y2', `${glow2Y}%`);
-    
-    document.body.style.setProperty('--bg-opacity-1', op1);
-    document.body.style.setProperty('--bg-opacity-2', op2);
-    document.body.style.setProperty('--bg-opacity-3', op3);
-});
-
-// 👀 INTERSECTION OBSERVER ENGINE
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            
-            const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
-            if(progressBars.length > 0) {
-                progressBars.forEach(bar => {
-                    bar.style.width = bar.getAttribute('data-progress');
-                });
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            // Simply toggle displaying the links natively on mobile devices
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.display = 'none';
+            } else {
+                navMenu.style.display = 'flex';
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.left = '0';
+                navMenu.style.width = '100%';
+                navMenu.style.background = 'rgba(6, 7, 10, 0.95)';
+                navMenu.style.padding = '30px 0';
+                navMenu.style.gap = '20px';
             }
-        }
-    });
-}, { threshold: 0.05 });
+        });
 
-document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
+        // Intersection Observer for Smooth Scroll Fade-Ins and Progress Bars
+        const dynamicElements = document.querySelectorAll('.hidden');
 
-// 🖼️ IMAGE POPUP SYSTEM LOADER
-function openImage(element) {
-    const targetImgSrc = element.querySelector('img').src;
-    const popup = document.getElementById('imgPopup');
-    const popupImg = document.getElementById('popupImg');
-    popupImg.src = targetImgSrc;
-    popup.style.display = 'flex';
-}
+        const layoutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    
+                    // Safely animate metric status fills inside the row once it's visible
+                    const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
+                    progressBars.forEach(bar => {
+                        const targetWidth = bar.getAttribute('data-progress');
+                        bar.style.width = targetWidth;
+                    });
+                }
+            });
+        }, { threshold: 0.15 });
 
-function closeImage() {
-    document.getElementById('imgPopup').style.display = 'none';
-}
-
-// 🍿 VIDEO MODAL SYSTEM LIGHTBOX LOADER
-function openVideoModal(element, isShorts) {
-    const videoUrl = element.getAttribute('data-video');
-    const modal = document.getElementById('videoModal');
-    const iframe = document.getElementById('modalIframe');
-    if(!videoUrl || videoUrl.includes('URL')) return; // Prevents loading placeholders
-    
-    iframe.src = videoUrl + "?autoplay=1";
-    if (isShorts) modal.classList.add('shorts-active');
-    else modal.classList.remove('shorts-active');
-    modal.classList.add('active');
-}
-
-function closeVideoModal() {
-    const modal = document.getElementById('videoModal');
-    const iframe = document.getElementById('modalIframe');
-    modal.classList.remove('active');
-    iframe.src = "";
-}
-
-// ✉️ WHATSAPP LEAD CAPTURE FORM SYSTEM
-document.getElementById('creativeContactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); 
-    
-    let clientName = document.getElementById('name').value;
-    let clientPhone = document.getElementById('phone').value;
-    let clientEmail = document.getElementById('email').value;
-    let projectDetails = document.getElementById('message').value;
-    
-    let formattedText = `*🔥 New Project Brief Capture!* %0A%0A` + 
-                        `*👤 Name Authority:* ${encodeURIComponent(clientName)} %0A` + 
-                        `*📞 Phone Authority:* ${encodeURIComponent(clientPhone)} %0A` + 
-                        `*✉️ Email Authority:* ${encodeURIComponent(clientEmail)} %0A` + 
-                        `*📋 Strategic Details Authority:* ${encodeURIComponent(projectDetails)} %0A%0A` +
-                        `*🎁 Authority Offer claimed:* Free Auditing System!`;
-                        
-    let targetWhatsAppURL = `https://wa.me/917409105361?text=${formattedText}`;
-    window.open(targetWhatsAppURL, '_blank');
-});
-</script>
+        dynamicElements.forEach(el => layoutObserver.observe(el));
+    </script>
 </body>
 </html>
