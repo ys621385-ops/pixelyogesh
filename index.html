@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yogesh Creative | Dark Space Studio</title>
-    <meta name="google-site-verification" content="7_N1Nkl_hOyBWqoaFb6-IUgVooHyp-OwlKILfdcov3c" />
+    <meta name="google-site-verification" content="7_N1Nkl_hOyBWqoaFb6-IUgVooHyp-OwlKILfdcov3c">
 
     <style>
-        /* 🪐 GLOBAL CYBERPUNK DARK SYSTEM STYLES */
+        /* GLOBAL SYSTEMS STYLES */
         * {
             margin: 0;
             padding: 0;
@@ -33,7 +33,7 @@
             --border-glow: rgba(168, 85, 247, 0.12);
         }
 
-        /* 👑 HEADER & NAVIGATION */
+        /* HEADER & NAVIGATION */
         header {
             background: rgba(6, 7, 10, 0.8);
             backdrop-filter: blur(25px);
@@ -56,6 +56,13 @@
             z-index: 1002;
         }
 
+        .brand-logo img {
+            width: 120px; 
+            height: auto;
+            display: block;
+            filter: drop-shadow(0px 0px 12px var(--purple-glow)); 
+        }
+
         .brand-logo h1 {
             font-size: 1.15rem;
             font-weight: 700;
@@ -70,13 +77,13 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Desktop Navigation System */
-        .nav-menu {
+        /* डेस्कटॉप मेनू स्टाइल */
+        nav {
             display: flex;
             align-items: center;
         }
 
-        .nav-menu a {
+        nav a {
             color: #94a3b8;
             margin-left: 40px; 
             text-decoration: none;
@@ -85,41 +92,39 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: all 0.3s ease;
-            position: relative;
-            padding: 8px 0;
         }
 
-        .nav-menu a:hover {
+        nav a:hover {
             color: #ffffff;
             text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
         }
 
-        /* Mobile Premium Widget Drawer Menu Trigger */
+        /* 📱 मोबाइल हैमबर्गर बटन (3 लाइन्स) */
         .menu-toggle {
             display: none;
             flex-direction: column;
-            justify-content: space-between;
-            width: 26px;
-            height: 18px;
+            gap: 5px;
             background: transparent;
             border: none;
             cursor: pointer;
-            z-index: 10002;
+            z-index: 10000;
+            padding: 5px;
         }
 
         .menu-toggle span {
-            width: 100%;
-            height: 2px;
-            background-color: #ffffff;
+            width: 25px;
+            height: 3px;
+            background: white;
             border-radius: 2px;
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
+        /* क्रॉस (X) एनीमेशन जब मेनू एक्टिव हो */
         .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: #b066ff; }
         .menu-toggle.active span:nth-child(2) { opacity: 0; }
         .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: #b066ff; }
 
-        /* 🚀 HERO SECTION */
+        /* HERO SECTION */
         .hero {
             min-height: 90vh;
             display: grid;
@@ -198,25 +203,24 @@
             z-index: 2;
         }
 
-        /* Cosmic Sphere */
         .cosmic-sphere {
-            width: 320px;
-            height: 320px;
+            width: 400px;
+            height: 400px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #d8b4fe 0%, #a855f7 40%, #6b21a8 85%, #4c1d95 100%); 
-            box-shadow: 0 0 80px rgba(168, 85, 247, 0.5), 
-                        inset -25px -25px 60px rgba(0, 0, 0, 0.9),
-                        inset 25px 25px 50px rgba(255, 255, 255, 0.4);
-            animation: cosmicRotate 12s infinite linear;
+            background: var(--purple-neon);
+            box-shadow: inset -40px -40px 100px rgba(0, 0, 0, 0.95), 
+                        0 0 60px rgba(99, 102, 241, 0.3), 
+                        0 0 120px var(--purple-glow);
+            animation: floatingOrb 8s ease-in-out infinite;
         }
 
-        @keyframes cosmicRotate {
-            0% { transform: rotate(0deg) translateY(0px); }
-            50% { transform: rotate(180deg) translateY(-10px); }
-            100% { transform: rotate(360deg) translateY(0px); }
+        @keyframes floatingOrb {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); filter: brightness(1.1); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
 
-        /* 🪐 NEON INFOBAR */
+        /* NEON INFOBAR */
         .urgency-bar {
             background: rgba(15, 17, 28, 0.4);
             border-top: 1px solid rgba(168, 85, 247, 0.12);
@@ -228,13 +232,9 @@
             text-transform: uppercase;
             color: #94a3b8;
         }
+        .urgency-bar span { color: #c084fc; font-weight: 600; }
 
-        .urgency-bar span {
-            color: #c084fc;
-            font-weight: 600;
-        }
-
-        /* CODE FORMAT SECTIONS */
+        /* CORE SECTIONS FORMAT */
         .section {
             padding: 100px 8%;
             max-width: 1400px;
@@ -264,7 +264,7 @@
             margin: 20px auto 55px auto;
         }
 
-        /* ⚡ SKILLS METRICS SYSTEM */
+        /* SKILLS METRICS SYSTEM */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -303,18 +303,8 @@
             margin-bottom: 10px;
         }
 
-        .skill-name {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #e2e8f0;
-            letter-spacing: 0.5px;
-        }
-
-        .skill-percentage {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--gold-accent);
-        }
+        .skill-name { font-size: 0.95rem; font-weight: 600; color: #e2e8f0; letter-spacing: 0.5px; }
+        .skill-percentage { font-size: 0.9rem; font-weight: 700; color: var(--gold-accent); }
 
         .progress-bar-bg {
             width: 100%;
@@ -322,7 +312,6 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             overflow: hidden;
-            position: relative;
         }
 
         .progress-bar-fill {
@@ -334,7 +323,7 @@
             box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
 
-        /* 🛠️ SERVICES GRID */
+        /* SERVICES GRID */
         .services {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -354,17 +343,6 @@
             overflow: hidden;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.05), transparent 60%);
-            pointer-events: none;
-        }
-
         .card.bento-wide { grid-column: span 2; }
 
         .card:hover {
@@ -378,7 +356,50 @@
         .card h3 { color: #ffffff; margin-bottom: 12px; font-size: 1.25rem; font-weight: 600; }
         .card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.7; }
 
-        /* ✉️ CONTACT FORM WORKSPACE */
+        /* PORTFOLIO SHOWCASE */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 30px;
+            padding: 0 8% 60px 8%;
+        }
+
+        .portfolio-item {
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 16/10;
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            background: #0f1017;
+            cursor: pointer;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(6, 7, 10, 0.95));
+            padding: 28px;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            text-align: left;
+        }
+
+        .portfolio-item:hover .portfolio-overlay { transform: translateY(0); }
+        .portfolio-overlay h4 { color: #ffffff; font-size: 1.15rem; margin-bottom: 5px; font-weight: 600; }
+        .portfolio-overlay p { color: var(--gold-accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        .portfolio img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .portfolio-item:hover img { transform: scale(1.05); }
+
+        /* CONTACT FORM WORKSPACE */
         .contact-container {
             max-width: 680px;
             margin: 0 auto;
@@ -436,7 +457,40 @@
             transform: translateY(-2px);
         }
 
-        /* 📱 FLOATING ACTION SYSTEM */
+        .contact-info {
+            margin-top: 38px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(168, 85, 247, 0.15);
+            padding-top: 28px;
+        }
+
+        /* LOCATION BOX */
+        .location-container {
+            max-width: 1000px;
+            margin: 40px auto 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            padding: 40px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .location-info h3 { color: #ffffff; font-size: 1.3rem; margin-bottom: 15px; letter-spacing: 1.5px; }
+        .location-info h3 span { color: var(--gold-accent); }
+        .location-info p { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; }
+        .map-box { width: 100%; height: 245px; border: 1px solid rgba(168, 85, 247, 0.15); background: #0f1017; border-radius: 8px; overflow: hidden; }
+
+        /* FLOATING ACTION SYSTEM */
         .floating-buttons-container {
             position: fixed;
             bottom: 30px;
@@ -460,241 +514,429 @@
 
         .float-btn:hover { transform: scale(1.1) translateY(-2px); }
         .whatsapp-btn { background-color: #25d366; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); }
+        .whatsapp-btn svg { width: 28px; height: 28px; fill: #ffffff; }
         .phone-btn { background: #ffffff; box-shadow: 0 8px 25px rgba(255,255,255,0.1); }
+        .phone-btn svg { width: 22px; height: 22px; fill: #050508; }
 
-        /* ✨ ANIMATIONS SYSTEM */
+        /* ANIMATIONS CLASSES */
         .hidden { opacity: 0; filter: blur(10px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .fade-up { transform: translateY(35px); }
         .show { opacity: 1; filter: blur(0); transform: translate(0) scale(1); }
+/* ======================================================= */
+/* 🎯 डेस्कटॉप के लिए पुराना परफेक्ट लुक (Desktop View) */
+/* ======================================================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;          /* पूरी स्क्रीन की हाइट लेगा */
+    padding: 0 8%;              /* दोनों साइड से बढ़िया स्पेस */
+    background: #06070a;        /* आपका पुराना डार्क बैकग्राउंड */
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
 
-        /* 📱 RESPONSIVE MEDIA SYSTEM */
-        @media (max-width: 968px) {
-            header { padding: 15px 5%; }
-            .nav-menu { display: none; }
-            .menu-toggle { display: flex; }
+/* लेफ्ट साइड का टेक्स्ट कंटेंट */
+.hero-left {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 2;
+}
+
+.hero-mini-tag {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-left h2 {
+    font-size: 3.5rem;          /* पुराना बड़ा और बोल्ड फॉन्ट */
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.hero-left h2 strong {
+    font-weight: 900;
+    color: #ffffff;             /* आप चाहें तो यहाँ अपना पर्पल #a855f7 भी दे सकते हैं */
+}
+
+/* बटन का स्टाइल */
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+/* ======================================================= */
+/* 📱 मोबाइल और टैबलेट: फुल स्क्रीन हाइलाइट एंड 3D मोशन */
+/* ======================================================= */
+@media (max-width: 968px) {
+    header { padding: 20px 5%; }
+    .brand-logo img { width: 100px; }
+    .menu-toggle { display: flex; }
+
+    /* 💎 1. पूरे पेज का बैकग्राउंड चेंज (ताकि खालीपन बिल्कुल खत्म हो जाए) */
+    body.menu-open::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.25) 0%, rgba(6, 7, 10, 0.95) 70%);
+        z-index: 9990; /* मेनू के ठीक पीछे रहेगा */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        animation: bgFade 0.4s ease forwards;
+    }
+
+    @keyframes bgFade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* 🔮 2. आपका कस्टमाइज्ड विजेट बॉक्स (फुल हाइलाइटेड) */
+    nav {
+        position: fixed;
+        top: 90px;                  
+        right: 25px;                
+        width: 320px;               
+        height: auto;               
+        max-height: calc(100vh - 140px);
+        
+        background: rgba(6, 7, 10, 0.92); 
+        
+        /* ⚡ सुपर नियॉन थिक बॉर्डर */
+        border: 2px solid #a855f7;
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0.4),
+                    inset 0 0 20px rgba(168, 85, 247, 0.2);
+        border-radius: 20px;        
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;        
+        
+        padding: 55px 35px;         
+        gap: 30px;                  
+
+        /* 🚀 एंट्री एनीमेशन */
+        visibility: hidden;
+        pointer-events: none;
+        opacity: 0;
+        transform: translate3d(40px, -20px, 0) scale(0.8) rotate(4deg); 
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                    opacity 0.4s ease, 
+                    visibility 0.4s;
+        z-index: 9999;
+        transform-origin: top right;
+    }
+
+    /* 🔺 चमकती हुई इंडिकेटर एरो टिप */
+    nav::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        right: 22px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #a855f7;
+        z-index: 10000;
+    }
+
+    /* एक्टिवेट होने पर बाउंस होकर पॉप-अप */
+    nav.active {
+        visibility: visible;
+        pointer-events: auto;
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg); 
+    }
+
+    /* 🔤 3. फॉन्ट्स को सुपर हाइलाइट और बड़ा लुक */
+    nav a {
+        color: #ffffff;             
+        font-size: 1.4rem;          /* फॉन्ट साइज को बड़ा किया */
+        font-weight: 900;           /* मैक्सिमम थिकनेस/बोल्डनेस */
+        margin: 0;
+        text-decoration: none;
+        letter-spacing: 3px;        /* वाइडर प्रीमियम लुक */
+        text-transform: uppercase;
+        text-align: center;         
+        width: 100%;
+        position: relative;
+        padding: 8px 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+    }
+    
+    /* कस्टमाइज्ड ग्लोइंग अंडरलाइन जो बीच से फैलेगी */
+    nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px; /* थोड़ी मोटी लाइन */
+        background: linear-gradient(90deg, transparent, #a855f7, #c084fc, transparent);
+        box-shadow: 0 0 12px #a855f7;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    /* 🔥 होवर / टच करने पर फॉन्ट का सुपर धमाका */
+    nav a:hover {
+        color: #f3e8ff; 
+        transform: scale(1.15); /* फॉन्ट खुलकर बड़ा होगा */
+        text-shadow: 0 0 15px #a855f7, 
+                     0 0 30px rgba(168, 85, 247, 0.6); /* फॉन्ट्स नियॉन बोर्ड की तरह चमकेंगे */
+    }
+
+    nav a:hover::after {
+        width: 90%;
+        left: 5%;
+    }
+
+    /* 🪐 4. आपके 3D ओपेक गोले को बड़ा और हाइलाइट करने का मैजिक */
+    body.menu-open .cosmic-sphere {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.4) !important; /* 3D गोला स्क्रीन के बीच में आकर बड़ा हो जाएगा */
+        width: 320px;
+        height: 320px;
+        z-index: 9991; /* यह बैकग्राउंड के ऊपर और मेनू के नीचे तैरता रहेगा */
+        background: radial-gradient(circle at 35% 35%, #d8b4fe 0%, #a855f7 40%, #6b21a8 85%, #4c1d95 100%); /* फुल ओपेक 3D ब्राइट कलर्स */
+        box-shadow: 0 0 100px rgba(168, 85, 247, 0.9), 
+                    inset -25px -25px 60px rgba(0, 0, 0, 0.9),
+                    inset 25px 25px 50px rgba(255, 255, 255, 0.4);
+        pointer-events: none;
+        animation: cosmicFloat 6s infinite ease-in-out alternate !important; /* क्रैज़ी फ्लोटिंग एनीमेशन */
+    }
+}
+
+/* 🌀 गोले का सिनेमैटिक फ्लोटिंग एनीमेशन */
+@keyframes cosmicFloat {
+    0% {
+        transform: translate(-50%, -53%) scale(1.3) rotate(0deg);
+        box-shadow: 0 0 80px rgba(168, 85, 247, 0.7);
+    }
+    100% {
+        transform: translate(-50%, -47%) scale(1.45) rotate(15deg);
+        box-shadow: 0 0 130px rgba(168, 85, 247, 1);
+    }
+}
+    /* होवर करने पर पर्पल कलर और थोड़ा सा आगे खिसकने का इफेक्ट */
+    nav a:hover {
+        color: #a855f7; 
+        padding-left: 5px;          /* होवर करने पर लिंक थोड़ा सा राइट में खिसकेगा */
+    }
+}
             
             .hero { grid-template-columns: 1fr; text-align: center; padding-top: 70px; padding-bottom: 50px; gap: 45px; }
             .hero-left { text-align: center; }
             .hero h2 { font-size: 3.2rem; }
+            .cosmic-sphere { width: 300px; height: 300px; }
             
             .skills-grid { grid-template-columns: 1fr; gap: 25px; }
             .services { grid-template-columns: 1fr; }
             .card.bento-wide { grid-column: span 1; }
             .section { padding: 80px 5%; }
+            .portfolio { grid-template-columns: 1fr; padding: 0 5% 40px 5%; }
             .contact-container { padding: 35px; }
-        }
+            .location-container { grid-template-columns: 1fr; padding: 25px; }
+        
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="#" class="brand-logo">
-            <h1>Yogesh <span>Creative</span></h1>
-        </a>
-        <nav class="nav-menu">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <button class="menu-toggle" id="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </header>
+<header>
+    <a href="#home" class="brand-logo">
+        <img src="./Yogesh Creative _ Dark Space Studio_files/yc logo.png" alt="YC Logo">
+        <h1>Yogesh <span>Creative</span></h1>
+    </a>
+    
+    <button class="menu-toggle" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-    <section class="hero">
-        <div class="hero-left">
-            <span class="hero-mini-tag">Dark Space Studio Production</span>
-            <h2>Next Generation<strong>Digital Creation</strong></h2>
-            <a href="#contact" class="hero-cta">Enter Studio</a>
-        </div>
-        <div class="hero-right">
-            <div class="cosmic-sphere"></div>
-        </div>
-    </section>
+    <nav id="navWorkspace">
+        <a href="#home" onclick="closeMobileMenu()">Welcome</a>
+        <a href="#skills" onclick="closeMobileMenu()">Skills Workspace</a>
+        <a href="#services" onclick="closeMobileMenu()">Digital Studio</a>
+        <a href="#portfolio" onclick="closeMobileMenu()">Selected Portfolio</a>
+        <a href="#contact" onclick="closeMobileMenu()">Contact Workspace</a>
+    </nav>
+</header>
 
-    <div class="urgency-bar">
-        System Protocol Active: Producing <span>Visual Authority Content</span> Daily
+<div class="floating-buttons-container">
+    <a href="https://wa.me/917409105361" class="float-btn whatsapp-btn" target="_blank" title="Chat Workspace">
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>
+    </a>
+    <a href="tel:+917409105361" class="float-btn phone-btn" title="Call Workspace">
+        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4.03c-.55 0-1 .45-1 1C3.03 13.12 10.88 21 20.01 21c.55 0 1-.45 1-1v-3.62c0-.55-.45-1-1-1z"></path></svg>
+    </a>
+</div>
+
+<section id="home" class="hero hidden fade-up show">
+    <div class="hero-left">
+        <span class="hero-mini-tag">Welcome to my personal space of</span>
+        <h2>CREATIVE &amp; <strong>MODERN DESIGNS</strong></h2>
+        <a href="#contact" class="hero-cta">Contact Me Workspace <span class="arrow">→</span></a>
+    </div>
+    <div class="hero-right">
+        <div class="cosmic-sphere"></div>
+    </div>
+</section>
+
+<div class="urgency-bar">
+    ⚡ <span>Exclusive Slots:</span> Booking only 3 Premium Projects this month. <span>2 Slots Left!</span> | Get a Free Strategic Audit.
+</div>
+
+<section id="skills" class="section" style="border-bottom: 1px solid rgba(168, 85, 247, 0.1);">
+    <h2 class="hidden fade-up">Technical <span>&amp; Creative Knowledge</span></h2>
+    <div class="divider hidden fade-up"></div>
+    
+    <div class="skills-grid">
+        <div class="skill-group-box hidden fade-up">
+            <h3>Design &amp; Post-Production</h3>
+            <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Adobe Photoshop</span><span class="skill-percentage">90%</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="90%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">CapCut Pro</span><span class="skill-percentage">90%</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="90%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Canva Asset Studio</span><span class="skill-percentage">90%</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="90%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Adobe Premiere Pro</span><span class="skill-percentage">80%</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="80%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Adobe After Effects</span><span class="skill-percentage">70%</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="70%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Adobe Illustrator</span><span class="skill-percentage">70%</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="70%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Adobe Dimension (3D Compositing)</span><span class="skill-percentage">80%</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="80%"></div></div>
+            </div>
+        </div>
+
+        <div class="skill-group-box hidden fade-up">
+            <h3>AI Engineering &amp; Development</h3>
+            <div class="skill-item">
+                <div class="skill-info"><span class="skill-name">Gemini AI Studio</span><span class="skill-percentage">90%</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="90%"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section">
+    <h2 class="hidden fade-up">Our <span>Digital Studio Services</span></h2>
+    <div class="divider hidden fade-up"></div>
+    <div class="services">
+        <div class="card bento-wide hidden fade-up"><span class="icon">✒️</span><h3>Graphic Design &amp; Branding Authority</h3><p>Stunning logos, cohesive visual identity systems, luxury packaging, and authority brand graphics that dominate.</p></div>
+        <div class="card hidden fade-up"><span class="icon">💻</span><h3>Cyber-Aesthetic Web Design</h3><p>Bespoke responsive websites engineered with next-gen interactions, tailored for business growth and authority.</p></div>
+        <div class="card hidden fade-up"><span class="icon">🎬</span><h3>Cinematic Deep Video Editing</h3><p>Professional video editing for viral Reels, high-converting cinematic product ads, and storytelling content polished to perfection.</p></div>
+        <div class="card bento-wide hidden fade-up"><span class="icon">🤖</span><h3>Next-Gen AI Content Production</h3><p>Leveraging cutting-edge automated AI content and high-quality synthetic voiceovers to scale Creative reachable efforts.</p></div>
+    </div>
+</section>
+
+<section id="portfolio" class="section">
+    <h2 class="hidden fade-up">Selected <span>Portfolio Showcase</span></h2>
+    <div class="divider hidden fade-up"></div>
+    <div class="portfolio">
+        <div class="portfolio-item">
+            <img src="./Yogesh Creative _ Dark Space Studio_files/pizza benner.png" alt="Portfolio 1">
+            <div class="portfolio-overlay"><h4>Crazy Cheesy Pizza</h4><p>Identity &amp; Brand Assets</p></div>
+        </div>
+        <div class="portfolio-item">
+            <img src="./Yogesh Creative _ Dark Space Studio_files/Untitled-2.jpg" alt="Portfolio 2">
+            <div class="portfolio-overlay"><h4>Struggle Se Success Tak</h4><p>Viral CTR Optimization</p></div>
+        </div>
+        <div class="portfolio-item">
+            <img src="./Yogesh Creative _ Dark Space Studio_files/web page.png" alt="Portfolio 3">
+            <div class="portfolio-overlay"><h4>Premium Social Asset System</h4><p>Vector Assets &amp; Typography</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <h2 class="hidden fade-up">Secure Project <span>Brief Capture</span></h2>
+    <div class="divider hidden fade-up"></div>
+    <div class="contact-container hidden fade-up">
+        <form id="creativeContactForm">
+            <div class="form-group"><label>Authority Full Name</label><input type="text" placeholder="Yogesh Creative" required></div>
+            <div class="form-group"><label>Workspace Phone</label><input type="tel" placeholder="+91 74091 05361" required></div>
+            <div class="form-group"><label>Authority Email</label><input type="email" placeholder="ys621385@gmail.com" required></div>
+            <div class="form-group"><label>Detailed Strategic Brief</label><textarea rows="5" placeholder="Define authority brand goals..." required></textarea></div>
+            <button type="submit" class="btn-submit">Submit Brief</button>
+        </form>
+        <div class="contact-info"><span>✉️ ys621385@gmail.com</span><span>📞 +91 7409105361</span></div>
     </div>
 
-    <section id="about" class="section">
-        <h2 class="hidden fade-up">Creative <span>Tech Stack</span></h2>
-        <div class="divider hidden fade-up"></div>
-        
-        <div class="skills-grid">
-            <div class="skill-group-box hidden fade-up">
-                <h3>Visual Identity Design</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">Adobe Illustrator</span>
-                        <span class="skill-percentage">70%</span>
-                    </div>
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill" data-progress="70%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">Adobe Dimension (3D Compositing)</span>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill" data-progress="80%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-group-box hidden fade-up">
-                <h3>AI Engineering & Development</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">Gemini AI Studio</span>
-                        <span class="skill-percentage">90%</span>
-                    </div>
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill" data-progress="90%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">ChatGPT Pro</span>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill" data-progress="80%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">VS Code (Development Environment)</span>
-                        <span class="skill-percentage">50%</span>
-                    </div>
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill" data-progress="50%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">Figma Interface Design</span>
-                        <span class="skill-percentage">50%</span>
-                    </div>
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill" data-progress="50%"></div>
-                    </div>
-                </div>
-            </div>
+    <div class="location-container hidden fade-up">
+        <div class="location-info">
+            <h3>Authority <span>Workstation Location</span></h3>
+            <p><strong>Location:</strong> Near J.D. Public School, Gali No. 1, Durga Park, Nasirpur, New Delhi, Delhi, 110045</p>
         </div>
-    </section>
-
-    <section id="services" class="section">
-        <h2 class="hidden fade-up">Our <span>Digital Studio Services</span></h2>
-        <div class="divider hidden fade-up"></div>
-        
-        <div class="services">
-            <div class="card bento-wide hidden fade-up">
-                <span class="icon">✒️</span>
-                <h3>Graphic Design & Branding Authority</h3>
-                <p>Stunning logos, cohesive visual identity systems, luxury packaging, and authority brand graphics that dominate.</p>
-            </div>
-            <div class="card hidden fade-up">
-                <span class="icon">🎬</span>
-                <h3>High-Retention Video Production</h3>
-                <p>Dynamic storytelling layouts optimized entirely for modern vertical delivery formats like Reels and Shorts.</p>
-            </div>
-            <div class="card hidden fade-up">
-                <span class="icon">🧠</span>
-                <h3>AI-Driven Concept Generation</h3>
-                <p>Hyper-realistic historical rendering, prompt engineering frameworks, and advanced digital art assets.</p>
-            </div>
-            <div class="card bento-wide hidden fade-up">
-                <span class="icon">⚡</span>
-                <h3>Full-Scale Creative Direction</h3>
-                <p>End-to-end design planning from initial asset mapping to high-resolution deployment ready for launch.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <h2 class="hidden fade-up">Initialize <span>A Project</span></h2>
-        <div class="divider hidden fade-up"></div>
-
-        <div class="contact-container hidden fade-up">
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Identifier / Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Communications Node / Email</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your business email address">
-                </div>
-                <div class="form-group">
-                    <label for="message">Project Parameters / Message</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="Describe your design objective or project scope..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Transmit Signal</button>
-            </form>
-        </div>
-    </section>
-
-    <div class="floating-buttons-container">
-        <a href="https://wa.me/#" class="float-btn whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
-            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.66.986 3.296 1.48 4.795 1.481 5.429 0 9.849-4.414 9.853-9.84.002-2.63-1.023-5.101-2.885-6.964C16.549 1.968 14.09 .943 11.473.943c-5.436 0-9.856 4.417-9.86 9.848-.001 1.745.485 3.326 1.404 4.797l-.998 3.645 3.73-.977zm11.303-4.46c-.229-.115-1.353-.667-1.561-.744-.208-.077-.359-.115-.51.115-.152.23-.586.744-.719.897-.132.153-.265.172-.494.058-.229-.115-.967-.356-1.841-1.136-.68-.606-1.138-1.355-1.271-1.586-.133-.23-.014-.354.101-.469.103-.103.229-.268.344-.403.115-.134.153-.229.229-.383.076-.153.038-.288-.019-.403-.057-.115-.51-1.23-.699-1.687-.183-.441-.369-.381-.51-.388-.132-.007-.284-.008-.436-.008-.153 0-.403.058-.613.288-.21.23-.803.785-.803 1.916 0 1.13.822 2.222.936 2.376.115.153 1.618 2.47 3.92 3.465.548.238 1.036.393 1.396.507.55.175 1.051.15 1.447.09.44-.065 1.353-.552 1.543-1.073.19-.522.19-.968.133-1.063-.056-.095-.208-.152-.437-.267z"/></svg>
-        </a>
-        <a href="tel:#" class="float-btn phone-btn" aria-label="Call Studio Number">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        </a>
+        <div class="map-box"><iframe width="100%" height="100%" frameborder="0" scrolling="no" src="./Yogesh Creative _ Dark Space Studio_files/maps.html"></iframe></div>
     </div>
+</section>
 
-    <script>
-        // Toggle mobile drawer navigation mechanics
-        const menuToggle = document.getElementById('mobile-menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
+<script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navWorkspace = document.getElementById('navWorkspace');
 
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            // Simply toggle displaying the links natively on mobile devices
-            if (navMenu.style.display === 'flex') {
-                navMenu.style.display = 'none';
-            } else {
-                navMenu.style.display = 'flex';
-                navMenu.style.flexDirection = 'column';
-                navMenu.style.position = 'absolute';
-                navMenu.style.top = '100%';
-                navMenu.style.left = '0';
-                navMenu.style.width = '100%';
-                navMenu.style.background = 'rgba(6, 7, 10, 0.95)';
-                navMenu.style.padding = '30px 0';
-                navMenu.style.gap = '20px';
-            }
-        });
+    // मोबाइल बटन पर क्लिक करने पर मेनू खोलें/बंद करें
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
+        navWorkspace.classList.toggle('active');
+    });
 
-        // Intersection Observer for Smooth Scroll Fade-Ins and Progress Bars
-        const dynamicElements = document.querySelectorAll('.hidden');
+    // मेनू लिंक पर क्लिक होने के बाद मेनू को बंद करने के लिए फ़ंक्शन
+    function closeMobileMenu() {
+        mobileMenuBtn.classList.remove('active');
+        navWorkspace.classList.remove('active');
+    }
 
-        const layoutObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    
-                    // Safely animate metric status fills inside the row once it's visible
-                    const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
-                    progressBars.forEach(bar => {
-                        const targetWidth = bar.getAttribute('data-progress');
-                        bar.style.width = targetWidth;
+    // स्क्रॉल एनीमेशन (प्रोग्रेस बार और फेड-इन इफेक्ट)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
+                if(progressBars.length > 0) {
+                    progressBars.forEach(bar => { 
+                        bar.style.width = bar.getAttribute('data-progress'); 
                     });
                 }
-            });
-        }, { threshold: 0.15 });
+            }
+        });
+    }, { threshold: 0.05 });
 
-        dynamicElements.forEach(el => layoutObserver.observe(el));
-    </script>
+    document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
+</script>
 </body>
 </html>
