@@ -760,30 +760,6 @@ nav a {
   margin: 15px 0;
   text-decoration: none;
 }
-/* ======================================================= */
-/* 📱 मोबाइल और टैबलेट: फुल स्क्रीन हाइलाइट एंड 3D मोशन */
-/* ======================================================= */
-@media (max-width: 968px) {
-    header { padding: 20px 5%; }
-    .brand-logo img { width: 100px; }
-    .menu-toggle { display: flex; }
-
-    /* 💎 1. पूरे पेज का बैकग्राउंड चेंज (ताकि खालीपन बिल्कुल खत्म हो जाए) */
-    body.menu-open::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background: radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.25) 0%, rgba(6, 7, 10, 0.95) 70%);
-        z-index: 9990; /* मेनू के ठीक पीछे रहेगा */
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        animation: bgFade 0.4s ease forwards;
-    }
-
-    @keyframes bgFade {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
 
     /* 🔮 2. आपका कस्टमाइज्ड विजेट बॉक्स (फुल हाइलाइटेड) */
     nav {
@@ -1456,38 +1432,7 @@ document.getElementById('creativeContactForm').addEventListener('submit', functi
     let targetWhatsAppURL = `https://wa.me/917409105361?text=${formattedText}`;
     window.open(targetWhatsAppURL, '_blank');
 });
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navWorkspace = document.getElementById('navWorkspace');
-
-    // मोबाइल बटन पर क्लिक करने पर मेनू खोलें/बंद करें
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenuBtn.classList.toggle('active');
-        navWorkspace.classList.toggle('active');
-    });
-
-    // मेनू लिंक पर क्लिक होने के बाद मेनू को बंद करने के लिए फ़ंक्शन
-    function closeMobileMenu() {
-        mobileMenuBtn.classList.remove('active');
-        navWorkspace.classList.remove('active');
-    }
-
-    // स्क्रॉल एनीमेशन (प्रोग्रेस बार और फेड-इन इफेक्ट)
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-                const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
-                if(progressBars.length > 0) {
-                    progressBars.forEach(bar => { 
-                        bar.style.width = bar.getAttribute('data-progress'); 
-                    });
-                }
-            }
-        });
-    }, { threshold: 0.05 });
-
-    document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
-</script>
+     
 </body>
 </html>
 </script>
