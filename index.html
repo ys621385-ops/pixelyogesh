@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yogesh Creative | Dark Space Studio</title>
-    <meta name="google-site-verification" content="7_N1Nkl_hOyBWqoaFb6-IUgVooHyp-OwlKILfdcov3c">
+    <meta name="google-site-verification" content="7_N1Nkl_hOyBWqoaFb6-IUgVooHyp-OwlKILfdcov3c" />
 
     <style>
-        /* GLOBAL SYSTEMS STYLES */
+        /* GLOBAL CYBERPUNK DARK SYSTEM STYLES */
         * {
             margin: 0;
             padding: 0;
@@ -22,6 +22,23 @@
             overflow-x: hidden;
             letter-spacing: 0.5px;
             position: relative;
+        }
+
+        /* DYNAMIC SCROLL ANIMATED BACKGROUND LAYER */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at var(--bg-glow-x1, 10%) var(--bg-glow-y1, 20%), rgba(168, 85, 247, var(--bg-opacity-1, 0.08)) 0%, transparent 45%),
+                radial-gradient(circle at var(--bg-glow-x2, 90%) var(--bg-glow-y2, 80%), rgba(99, 102, 241, var(--bg-opacity-2, 0.05)) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, var(--bg-opacity-3, 0.02)) 0%, transparent 60%);
+            z-index: -1;
+            pointer-events: none;
+            transition: background 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         :root {
@@ -77,7 +94,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* डेस्कटॉप मेनू स्टाइल */
         nav {
             display: flex;
             align-items: center;
@@ -99,27 +115,26 @@
             text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
         }
 
-        /* 📱 मोबाइल हैमबर्गर बटन (3 लाइन्स) */
         .menu-toggle {
             display: none;
             flex-direction: column;
-            gap: 5px;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
             background: transparent;
             border: none;
             cursor: pointer;
-            z-index: 10000;
-            padding: 5px;
+            z-index: 1002;
         }
 
         .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: white;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
             border-radius: 2px;
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        /* क्रॉस (X) एनीमेशन जब मेनू एक्टिव हो */
         .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: #b066ff; }
         .menu-toggle.active span:nth-child(2) { opacity: 0; }
         .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: #b066ff; }
@@ -211,6 +226,7 @@
             box-shadow: inset -40px -40px 100px rgba(0, 0, 0, 0.95), 
                         0 0 60px rgba(99, 102, 241, 0.3), 
                         0 0 120px var(--purple-glow);
+            position: relative;
             animation: floatingOrb 8s ease-in-out infinite;
         }
 
@@ -232,7 +248,10 @@
             text-transform: uppercase;
             color: #94a3b8;
         }
-        .urgency-bar span { color: #c084fc; font-weight: 600; }
+        .urgency-bar span {
+            color: #c084fc;
+            font-weight: 600;
+        }
 
         /* CORE SECTIONS FORMAT */
         .section {
@@ -293,8 +312,13 @@
             padding-left: 12px;
         }
 
-        .skill-item { margin-bottom: 25px; }
-        .skill-item:last-child { margin-bottom: 0; }
+        .skill-item {
+            margin-bottom: 25px;
+        }
+
+        .skill-item:last-child {
+            margin-bottom: 0;
+        }
 
         .skill-info {
             display: flex;
@@ -303,8 +327,18 @@
             margin-bottom: 10px;
         }
 
-        .skill-name { font-size: 0.95rem; font-weight: 600; color: #e2e8f0; letter-spacing: 0.5px; }
-        .skill-percentage { font-size: 0.9rem; font-weight: 700; color: var(--gold-accent); }
+        .skill-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-percentage {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+        }
 
         .progress-bar-bg {
             width: 100%;
@@ -312,6 +346,7 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             overflow: hidden;
+            position: relative;
         }
 
         .progress-bar-fill {
@@ -343,6 +378,17 @@
             overflow: hidden;
         }
 
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.05), transparent 60%);
+            pointer-events: none;
+        }
+
         .card.bento-wide { grid-column: span 2; }
 
         .card:hover {
@@ -356,12 +402,41 @@
         .card h3 { color: #ffffff; margin-bottom: 12px; font-size: 1.25rem; font-weight: 600; }
         .card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.7; }
 
+        /* NEON FILTER SYSTEM */
+        .filter-container {
+            margin-bottom: 55px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            color: #94a3b8;
+            padding: 11px 30px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            border-color: #ffffff;
+            color: #050508;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+        }
+
         /* PORTFOLIO SHOWCASE */
         .portfolio {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
             gap: 30px;
-            padding: 0 8% 60px 8%;
         }
 
         .portfolio-item {
@@ -371,7 +446,6 @@
             border: 1px solid var(--border-glow);
             border-radius: 12px;
             background: #0f1017;
-            cursor: pointer;
         }
 
         .portfolio-overlay {
@@ -386,9 +460,23 @@
             text-align: left;
         }
 
-        .portfolio-item:hover .portfolio-overlay { transform: translateY(0); }
-        .portfolio-overlay h4 { color: #ffffff; font-size: 1.15rem; margin-bottom: 5px; font-weight: 600; }
-        .portfolio-overlay p { color: var(--gold-accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h4 {
+            color: #ffffff;
+            font-size: 1.15rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .portfolio-overlay p {
+            color: var(--gold-accent);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         .portfolio img {
             width: 100%;
@@ -397,7 +485,95 @@
             transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .portfolio-item:hover img { transform: scale(1.05); }
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* VIDEO SHOWCASE */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: #0f1017;
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        
+        .video-card.vertical { aspect-ratio: 9/16; max-width: 315px; margin: 0 auto; }
+        .video-card.horizontal { aspect-ratio: 16/9; }
+
+        .video-card:hover {
+            border-color: rgba(168, 85, 247, 0.35);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.12);
+        }
+
+        .video-thumbnail-wrapper { width: 100%; height: 100%; position: relative; }
+        .video-thumbnail-wrapper img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transition: opacity 0.3s; }
+        .video-card:hover .video-thumbnail-wrapper img { opacity: 0.8; }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); background: var(--purple-neon); }
+        .play-btn svg { width: 20px; height: 20px; fill: #050508; transition: fill 0.3s; }
+        .video-card:hover .play-btn svg { fill: #ffffff; }
+
+        .video-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 22px;
+            background: linear-gradient(transparent, rgba(6, 7, 10, 0.95));
+            text-align: left;
+        }
+        .video-info h3 { font-size: 1.05rem; color: #ffffff; margin-bottom: 2px; }
+        .video-info p { color: #94a3b8; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; }
+
+        /* VIDEO MODAL LIGHTBOX SYSTEM */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 6, 10, 0.98);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            padding: 20px;
+        }
+
+        .video-modal.active { opacity: 1; pointer-events: auto; }
+        .modal-container { width: 100%; max-width: 950px; aspect-ratio: 16/9; background: #000; position: relative; border: 1px solid rgba(168, 85, 247, 0.2); }
+        .video-modal.shorts-active .modal-container { max-width: 390px; aspect-ratio: 9/16; }
+        .modal-container iframe { width: 100%; height: 100%; border: none; }
+        .close-modal { position: absolute; top: -38px; right: 0; color: #ffffff; font-size: 1.1rem; cursor: pointer; letter-spacing: 1.5px; }
 
         /* CONTACT FORM WORKSPACE */
         .contact-container {
@@ -518,255 +694,175 @@
         .phone-btn { background: #ffffff; box-shadow: 0 8px 25px rgba(255,255,255,0.1); }
         .phone-btn svg { width: 22px; height: 22px; fill: #050508; }
 
-        /* ANIMATIONS CLASSES */
+        /* ANIMATIONS MECH */
         .hidden { opacity: 0; filter: blur(10px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .fade-up { transform: translateY(35px); }
+        .zoom { transform: scale(0.96); }
         .show { opacity: 1; filter: blur(0); transform: translate(0) scale(1); }
-/* ======================================================= */
-/* 🎯 डेस्कटॉप के लिए पुराना परफेक्ट लुक (Desktop View) */
-/* ======================================================= */
-.hero {
+
+        /* RESPONSIVE MEDIA SYSTEM */
+       /* ==========================================================================
+   1. LAPTOP / DESKTOP STYLES (Base Styles)
+   ========================================================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 100vh;          /* पूरी स्क्रीन की हाइट लेगा */
-    padding: 0 8%;              /* दोनों साइड से बढ़िया स्पेस */
-    background: #06070a;        /* आपका पुराना डार्क बैकग्राउंड */
-    color: #ffffff;
-    overflow: hidden;
-    position: relative;
+    padding: 20px 8%;
+    background: rgba(6, 7, 10, 0.8); /* Dark Premium Glassmorphism */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-/* लेफ्ट साइड का टेक्स्ट कंटेंट */
-.hero-left {
-    flex: 1;
-    max-width: 600px;
+.brand-logo {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 2;
-}
-
-.hero-mini-tag {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.hero-left h2 {
-    font-size: 3.5rem;          /* पुराना बड़ा और बोल्ड फॉन्ट */
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: 1px;
-    margin: 0;
-}
-
-.hero-left h2 strong {
-    font-weight: 900;
-    color: #ffffff;             /* आप चाहें तो यहाँ अपना पर्पल #a855f7 भी दे सकते हैं */
-}
-
-/* बटन का स्टाइल */
-.hero-cta {
-    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-    color: #ffffff;
+    gap: 12px;
     text-decoration: none;
-    font-weight: 600;
+}
+
+.brand-logo img {
+    width: 40px; /* Laptop पर लोगो साइज */
+    height: auto;
+}
+
+.brand-logo h1 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    font-weight: 700;
     letter-spacing: 1px;
-    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.brand-logo h1 span {
+    color: #cbd5e1; /* 'Creative' का हल्का टोन */
+    font-weight: 400;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
-/* ======================================================= */
-/* 📱 मोबाइल और टैबलेट: फुल स्क्रीन हाइलाइट एंड 3D मोशन */
-/* ======================================================= */
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* Hamburger Button - Laptop पर छुपा रहेगा */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 0;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+/* ==========================================================================
+   2. MOBILE & TABLET STYLES (Max-Width: 968px)
+   ========================================================================== */
 @media (max-width: 968px) {
-    header { padding: 20px 5%; }
-    .brand-logo img { width: 100px; }
-    .menu-toggle { display: flex; }
-
-    /* 💎 1. पूरे पेज का बैकग्राउंड चेंज (ताकि खालीपन बिल्कुल खत्म हो जाए) */
-    body.menu-open::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background: radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.25) 0%, rgba(6, 7, 10, 0.95) 70%);
-        z-index: 9990; /* मेनू के ठीक पीछे रहेगा */
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        animation: bgFade 0.4s ease forwards;
+    header { 
+        padding: 15px 5%; 
     }
 
-    @keyframes bgFade {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    /* 🔮 2. आपका कस्टमाइज्ड विजेट बॉक्स (फुल हाइलाइटेड) */
-    nav {
-        position: fixed;
-        top: 90px;                  
-        right: 25px;                
-        width: 320px;               
-        height: auto;               
-        max-height: calc(100vh - 140px);
-        
-        background: rgba(6, 7, 10, 0.92); 
-        
-        /* ⚡ सुपर नियॉन थिक बॉर्डर */
-        border: 2px solid #a855f7;
-        box-shadow: 0 0 30px rgba(168, 85, 247, 0.4),
-                    inset 0 0 20px rgba(168, 85, 247, 0.2);
-        border-radius: 20px;        
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: center; 
-        align-items: center;        
-        
-        padding: 55px 35px;         
-        gap: 30px;                  
-
-        /* 🚀 एंट्री एनीमेशन */
-        visibility: hidden;
-        pointer-events: none;
-        opacity: 0;
-        transform: translate3d(40px, -20px, 0) scale(0.8) rotate(4deg); 
-        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                    opacity 0.4s ease, 
-                    visibility 0.4s;
-        z-index: 9999;
-        transform-origin: top right;
-    }
-
-    /* 🔺 चमकती हुई इंडिकेटर एरो टिप */
-    nav::before {
-        content: '';
-        position: absolute;
-        top: -10px;
-        right: 22px;
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid #a855f7;
-        z-index: 10000;
-    }
-
-    /* एक्टिवेट होने पर बाउंस होकर पॉप-अप */
-    nav.active {
-        visibility: visible;
-        pointer-events: auto;
-        opacity: 1;
-        transform: translate3d(0, 0, 0) scale(1) rotate(0deg); 
-    }
-
-    /* 🔤 3. फॉन्ट्स को सुपर हाइलाइट और बड़ा लुक */
-    nav a {
-        color: #ffffff;             
-        font-size: 1.4rem;          /* फॉन्ट साइज को बड़ा किया */
-        font-weight: 900;           /* मैक्सिमम थिकनेस/बोल्डनेस */
-        margin: 0;
-        text-decoration: none;
-        letter-spacing: 3px;        /* वाइडर प्रीमियम लुक */
-        text-transform: uppercase;
-        text-align: center;         
-        width: 100%;
-        position: relative;
-        padding: 8px 0;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+    .brand-logo img { 
+        width: 35px; /* मोबाइल पर छोटा लोगो */
     }
     
-    /* कस्टमाइज्ड ग्लोइंग अंडरलाइन जो बीच से फैलेगी */
-    nav a::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 3px; /* थोड़ी मोटी लाइन */
-        background: linear-gradient(90deg, transparent, #a855f7, #c084fc, transparent);
-        box-shadow: 0 0 12px #a855f7;
-        transition: width 0.3s ease, left 0.3s ease;
+    .brand-logo h1 {
+        font-size: 1.2rem;
     }
 
-    /* 🔥 होवर / टच करने पर फॉन्ट का सुपर धमाका */
-    nav a:hover {
-        color: #f3e8ff; 
-        transform: scale(1.15); /* फॉन्ट खुलकर बड़ा होगा */
-        text-shadow: 0 0 15px #a855f7, 
-                     0 0 30px rgba(168, 85, 247, 0.6); /* फॉन्ट्स नियॉन बोर्ड की तरह चमकेंगे */
+    .menu-toggle { 
+        display: flex; /* मोबाइल पर हैमबर्गर बटन दिखेगा */
     }
 
-    nav a:hover::after {
-        width: 90%;
-        left: 5%;
-    }
-
-    /* 🪐 4. आपके 3D ओपेक गोले को बड़ा और हाइलाइट करने का मैजिक */
-    body.menu-open .cosmic-sphere {
+    /* मोबाइल मेनू स्क्रीन */
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.4) !important; /* 3D गोला स्क्रीन के बीच में आकर बड़ा हो जाएगा */
-        width: 320px;
-        height: 320px;
-        z-index: 9991; /* यह बैकग्राउंड के ऊपर और मेनू के नीचे तैरता रहेगा */
-        background: radial-gradient(circle at 35% 35%, #d8b4fe 0%, #a855f7 40%, #6b21a8 85%, #4c1d95 100%); /* फुल ओपेक 3D ब्राइट कलर्स */
-        box-shadow: 0 0 100px rgba(168, 85, 247, 0.9), 
-                    inset -25px -25px 60px rgba(0, 0, 0, 0.9),
-                    inset 25px 25px 50px rgba(255, 255, 255, 0.4);
-        pointer-events: none;
-        animation: cosmicFloat 6s infinite ease-in-out alternate !important; /* क्रैज़ी फ्लोटिंग एनीमेशन */
+        top: 0;
+        right: -100%; /* स्क्रीन के बाहर रहेगा */
+        width: 100vw;
+        height: 100vh;
+        background: rgba(6, 7, 10, 0.98);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        transition: right 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 1001;
+        gap: 35px;
     }
-}
 
-/* 🌀 गोले का सिनेमैटिक फ्लोटिंग एनीमेशन */
-@keyframes cosmicFloat {
-    0% {
-        transform: translate(-50%, -53%) scale(1.3) rotate(0deg);
-        box-shadow: 0 0 80px rgba(168, 85, 247, 0.7);
+    /* जब मेनू एक्टिव होगा */
+    nav.active { 
+        right: 0; 
     }
-    100% {
-        transform: translate(-50%, -47%) scale(1.45) rotate(15deg);
-        box-shadow: 0 0 130px rgba(168, 85, 247, 1);
+
+    nav a { 
+        font-size: 1.2rem; 
+        letter-spacing: 2px; 
+        color: #cbd5e1; 
+    }
+
+    /* Hamburger Animation: क्लिक करने पर 'X' बनना */
+    .menu-toggle.open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
-    /* होवर करने पर पर्पल कलर और थोड़ा सा आगे खिसकने का इफेक्ट */
-    nav a:hover {
-        color: #a855f7; 
-        padding-left: 5px;          /* होवर करने पर लिंक थोड़ा सा राइट में खिसकेगा */
-    }
-}
-            
-            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 70px; padding-bottom: 50px; gap: 45px; }
-            .hero-left { text-align: center; }
-            .hero h2 { font-size: 3.2rem; }
-            .cosmic-sphere { width: 300px; height: 300px; }
-            
-            .skills-grid { grid-template-columns: 1fr; gap: 25px; }
-            .services { grid-template-columns: 1fr; }
-            .card.bento-wide { grid-column: span 1; }
-            .section { padding: 80px 5%; }
-            .portfolio { grid-template-columns: 1fr; padding: 0 5% 40px 5%; }
-            .contact-container { padding: 35px; }
-            .location-container { grid-template-columns: 1fr; padding: 25px; }
-        
     </style>
 </head>
 <body>
 
 <header>
     <a href="#home" class="brand-logo">
-        <img src="./Yogesh Creative _ Dark Space Studio_files/yc logo.png" alt="YC Logo">
+        <img src="yc logo.png" alt="YC Logo">
         <h1>Yogesh <span>Creative</span></h1>
     </a>
     
-    <button class="menu-toggle" id="mobileMenuBtn">
+    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
         <span></span>
         <span></span>
         <span></span>
@@ -783,19 +879,20 @@
 
 <div class="floating-buttons-container">
     <a href="https://wa.me/917409105361" class="float-btn whatsapp-btn" target="_blank" title="Chat Workspace">
-        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </a>
     <a href="tel:+917409105361" class="float-btn phone-btn" title="Call Workspace">
-        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4.03c-.55 0-1 .45-1 1C3.03 13.12 10.88 21 20.01 21c.55 0 1-.45 1-1v-3.62c0-.55-.45-1-1-1z"></path></svg>
+        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4.03c-.55 0-1 .45-1 1C3.03 13.12 10.88 21 20.01 21c.55 0 1-.45 1-1v-3.62c0-.55-.45-1-1-1z"/></svg>
     </a>
 </div>
 
-<section id="home" class="hero hidden fade-up show">
+<section id="home" class="hero hidden fade-up">
     <div class="hero-left">
         <span class="hero-mini-tag">Welcome to my personal space of</span>
-        <h2>CREATIVE &amp; <strong>MODERN DESIGNS</strong></h2>
+        <h2>CREATIVE & <strong>MODERN DESIGNS</strong></h2>
         <a href="#contact" class="hero-cta">Contact Me Workspace <span class="arrow">→</span></a>
     </div>
+    
     <div class="hero-right">
         <div class="cosmic-sphere"></div>
     </div>
@@ -806,47 +903,125 @@
 </div>
 
 <section id="skills" class="section" style="border-bottom: 1px solid rgba(168, 85, 247, 0.1);">
-    <h2 class="hidden fade-up">Technical <span>&amp; Creative Knowledge</span></h2>
+    <h2 class="hidden fade-up">Technical <span>& Creative Knowledge</span></h2>
     <div class="divider hidden fade-up"></div>
     
     <div class="skills-grid">
         <div class="skill-group-box hidden fade-up">
-            <h3>Design &amp; Post-Production</h3>
+            <h3>Design & Post-Production</h3>
+            
             <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Adobe Photoshop</span><span class="skill-percentage">90%</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="90%"></div></div>
+                <div class="skill-info">
+                    <span class="skill-name">Adobe Photoshop</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="90%"></div>
+                </div>
             </div>
+
             <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">CapCut Pro</span><span class="skill-percentage">90%</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="90%"></div></div>
+                <div class="skill-info">
+                    <span class="skill-name">CapCut Pro</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="90%"></div>
+                </div>
             </div>
+
             <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Canva Asset Studio</span><span class="skill-percentage">90%</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="90%"></div></div>
+                <div class="skill-info">
+                    <span class="skill-name">Canva Asset Studio</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="90%"></div>
+                </div>
             </div>
+
             <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Adobe Premiere Pro</span><span class="skill-percentage">80%</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="80%"></div></div>
+                <div class="skill-info">
+                    <span class="skill-name">Adobe Premiere Pro</span>
+                    <span class="skill-percentage">80%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="80%"></div>
+                </div>
             </div>
+
             <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Adobe After Effects</span><span class="skill-percentage">70%</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="70%"></div></div>
+                <div class="skill-info">
+                    <span class="skill-name">Adobe After Effects</span>
+                    <span class="skill-percentage">70%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="70%"></div>
+                </div>
             </div>
+
             <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Adobe Illustrator</span><span class="skill-percentage">70%</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="70%"></div></div>
+                <div class="skill-info">
+                    <span class="skill-name">Adobe Illustrator</span>
+                    <span class="skill-percentage">70%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="70%"></div>
+                </div>
             </div>
+
             <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Adobe Dimension (3D Compositing)</span><span class="skill-percentage">80%</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="80%"></div></div>
+                <div class="skill-info">
+                    <span class="skill-name">Adobe Dimension (3D Compositing)</span>
+                    <span class="skill-percentage">80%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="80%"></div>
+                </div>
             </div>
         </div>
 
         <div class="skill-group-box hidden fade-up">
-            <h3>AI Engineering &amp; Development</h3>
+            <h3>AI Engineering & Development</h3>
+            
             <div class="skill-item">
-                <div class="skill-info"><span class="skill-name">Gemini AI Studio</span><span class="skill-percentage">90%</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" data-progress="90%"></div></div>
+                <div class="skill-info">
+                    <span class="skill-name">Gemini AI Studio</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="90%"></div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-info">
+                    <span class="skill-name">ChatGPT Pro</span>
+                    <span class="skill-percentage">80%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="80%"></div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-info">
+                    <span class="skill-name">VS Code (Development Environment)</span>
+                    <span class="skill-percentage">50%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="50%"></div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-info">
+                    <span class="skill-name">Figma Interface Design</span>
+                    <span class="skill-percentage">50%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-progress="50%"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -855,88 +1030,287 @@
 <section id="services" class="section">
     <h2 class="hidden fade-up">Our <span>Digital Studio Services</span></h2>
     <div class="divider hidden fade-up"></div>
+    
     <div class="services">
-        <div class="card bento-wide hidden fade-up"><span class="icon">✒️</span><h3>Graphic Design &amp; Branding Authority</h3><p>Stunning logos, cohesive visual identity systems, luxury packaging, and authority brand graphics that dominate.</p></div>
-        <div class="card hidden fade-up"><span class="icon">💻</span><h3>Cyber-Aesthetic Web Design</h3><p>Bespoke responsive websites engineered with next-gen interactions, tailored for business growth and authority.</p></div>
-        <div class="card hidden fade-up"><span class="icon">🎬</span><h3>Cinematic Deep Video Editing</h3><p>Professional video editing for viral Reels, high-converting cinematic product ads, and storytelling content polished to perfection.</p></div>
-        <div class="card bento-wide hidden fade-up"><span class="icon">🤖</span><h3>Next-Gen AI Content Production</h3><p>Leveraging cutting-edge automated AI content and high-quality synthetic voiceovers to scale Creative reachable efforts.</p></div>
+        <div class="card bento-wide hidden fade-up">
+            <span class="icon">✒️</span>
+            <h3>Graphic Design & Branding Authority</h3>
+            <p>Stunning logos, cohesive visual identity systems, luxury packaging, and authority brand graphics that dominate.</p>
+        </div>
+        <div class="card hidden fade-up">
+            <span class="icon">💻</span>
+            <h3>Cyber-Aesthetic Web Design</h3>
+            <p>Bespoke responsive websites engineered with next-gen interactions, tailored for business growth and authority.</p>
+        </div>
+        <div class="card hidden fade-up">
+            <span class="icon">🎬</span>
+            <h3>Cinematic Deep Video Editing</h3>
+            <p>Professional video editing for viral Reels, high-converting cinematic product ads, and storytelling content polished to perfection.</p>
+        </div>
+        <div class="card bento-wide hidden fade-up">
+            <span class="icon">🤖</span>
+            <h3>Next-Gen AI Content Production</h3>
+            <p>Leveraging cutting-edge automated AI content and high-quality synthetic voiceovers to scale Creative reachable efforts.</p>
+        </div>
     </div>
 </section>
 
 <section id="portfolio" class="section">
-    <h2 class="hidden fade-up">Selected <span>Portfolio Showcase</span></h2>
+    <h2 class="hidden fade-up">Selected <span>Work Projects</span></h2>
     <div class="divider hidden fade-up"></div>
+    
+    <div class="filter-container hidden fade-up">
+        <button class="filter-btn active" onclick="filterPortfolio('all', this)">All Projects</button>
+        <button class="filter-btn" onclick="filterPortfolio('branding', this)">Identity & Branding</button>
+        <button class="filter-btn" onclick="filterPortfolio('thumbnails', this)">Viral Thumbnails</button>
+    </div>
+    
     <div class="portfolio">
-        <div class="portfolio-item">
-            <img src="./Yogesh Creative _ Dark Space Studio_files/pizza benner.png" alt="Portfolio 1">
-            <div class="portfolio-overlay"><h4>Crazy Cheesy Pizza</h4><p>Identity &amp; Brand Assets</p></div>
+        <div class="portfolio-item hidden zoom" data-category="branding">
+           <img src="pizza benner.png" style="width:100%;alt="Branding Project">
+            <div class="portfolio-overlay">
+                <h4>Crazy Cheesy Pizza</h4>
+                <p>Identity & Brand Assets</p>
+            </div>
         </div>
-        <div class="portfolio-item">
-            <img src="./Yogesh Creative _ Dark Space Studio_files/Untitled-2.jpg" alt="Portfolio 2">
-            <div class="portfolio-overlay"><h4>Struggle Se Success Tak</h4><p>Viral CTR Optimization</p></div>
+
+        <div class="portfolio-item hidden zoom" data-category="thumbnails">
+            <img src="Untitled-2.jpg" alt="Thumbnail Design">
+            <div class="portfolio-overlay">
+                <h4>Struggle Se Success Tak</h4>
+                <p>Viral CTR Optimization</p>
+            </div>
         </div>
-        <div class="portfolio-item">
-            <img src="./Yogesh Creative _ Dark Space Studio_files/web page.png" alt="Portfolio 3">
-            <div class="portfolio-overlay"><h4>Premium Social Asset System</h4><p>Vector Assets &amp; Typography</p></div>
+
+        <div class="portfolio-item hidden zoom" data-category="branding">
+            <img src="web page.png"="Creative Graphic width="90%>
+            <div class="portfolio-overlay">
+                <h4>Premium Social Asset System</h4>
+                <p>Vector Assets & Typography</p>
+            </div>
         </div>
     </div>
 </section>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Yogesh Creative</title>
+    <style>
+        :root { --bg: #06070a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: #fff; padding: 40px; }
+        
+        .section-title { text-align: center; margin: 60px 0 30px; font-size: 1.5rem; letter-spacing: 2px; text-transform: uppercase; }
+        
+        /* 4 Reels (1080x1920) */
+        .reels-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 15px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .reel-card { aspect-ratio: 9/16; background: #111; border-radius: 8px; border: 1px solid #222; }
+
+        /* 3 Long Videos (1920x1080) */
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .video-card { aspect-ratio: 16/9; background: #111; border-radius: 8px; border: 1px solid #222; }
+
+        @media (max-width: 768px) {
+            .reels-grid { grid-template-columns: repeat(2, 1fr); }
+            .video-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="section-title">Short Reels</h2>
+    <div class="reels-grid">
+        <div class="reel-card"></div>
+        <div class="reel-card"></div>
+        <div class="reel-card"></div>
+        <div class="reel-card"></div>
+    </div>
+
+    <h2 class="section-title">Long Videos</h2>
+    <div class="video-grid">
+        <div class="video-card"></div>
+        <div class="video-card"></div>
+        <div class="video-card"></div>
+    </div>
+
+</body>
+</html>
+
+<div class="video-modal" id="videoModal" onclick="closeVideoModal()">
+    <div class="modal-container" onclick="event.stopPropagation()">
+        <span class="close-modal" onclick="closeVideoModal()">✕ Close Window</span>
+        <iframe id="modalIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
 <section id="contact" class="section">
-    <h2 class="hidden fade-up">Secure Project <span>Brief Capture</span></h2>
+    <h2 class="hidden fade-up">Secure Project <span> Brief Capture</span></h2>
     <div class="divider hidden fade-up"></div>
-    <div class="contact-container hidden fade-up">
+    
+    <div class="contact-container hidden fade-up" style="margin-bottom: 60px;">
         <form id="creativeContactForm">
-            <div class="form-group"><label>Authority Full Name</label><input type="text" placeholder="Yogesh Creative" required></div>
-            <div class="form-group"><label>Workspace Phone</label><input type="tel" placeholder="+91 74091 05361" required></div>
-            <div class="form-group"><label>Authority Email</label><input type="email" placeholder="ys621385@gmail.com" required></div>
-            <div class="form-group"><label>Detailed Strategic Brief</label><textarea rows="5" placeholder="Define authority brand goals..." required></textarea></div>
+            <div class="form-group">
+                <label for="name">Authority Full Name</label>
+                <input type="text" id="name" placeholder="Yogesh Creative" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Workspace Phone</label>
+                <input type="tel" id="phone" placeholder="+91 74091 05361" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Authority Email</label>
+                <input type="email" id="email" placeholder="ys621385@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Detailed Strategic Brief</label>
+                <textarea id="message" rows="5" placeholder="Define authority brand goals..." required></textarea>
+            </div>
             <button type="submit" class="btn-submit">Submit Brief</button>
         </form>
-        <div class="contact-info"><span>✉️ ys621385@gmail.com</span><span>📞 +91 7409105361</span></div>
+
+        <div class="contact-info">
+            <span>✉️ ys621385@gmail.com</span>
+            <span>📞 +91 7409105361</span>
+        </div>
     </div>
 
     <div class="location-container hidden fade-up">
         <div class="location-info">
             <h3>Authority <span>Workstation Location</span></h3>
             <p><strong>Location:</strong> Near J.D. Public School, Gali No. 1, Durga Park, Nasirpur, New Delhi, Delhi, 110045</p>
+            <p><strong>Operational Hours:</strong> 10:00 AM - 08:00 PM IST</p>
+            <p>Direct appointments can be secured for workstation design strategy discussion.</p>
         </div>
-        <div class="map-box"><iframe width="100%" height="100%" frameborder="0" scrolling="no" src="./Yogesh Creative _ Dark Space Studio_files/maps.html"></iframe></div>
+        <div class="map-box">
+            <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://maps.google.com/maps?q=JD%20Public%20School,%20Durga%20Park,%20Nasirpur,%20Delhi&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
     </div>
 </section>
 
+<footer>
+    <p>© 2026 Yogesh Creative Studio Co. All authority brand rights reserved.</p>
+</footer>
+
 <script>
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navWorkspace = document.getElementById('navWorkspace');
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navWorkspace = document.getElementById('navWorkspace');
 
-    // मोबाइल बटन पर क्लिक करने पर मेनू खोलें/बंद करें
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenuBtn.classList.toggle('active');
-        navWorkspace.classList.toggle('active');
-    });
+mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('active');
+    navWorkspace.classList.toggle('active');
+});
 
-    // मेनू लिंक पर क्लिक होने के बाद मेनू को बंद करने के लिए फ़ंक्शन
-    function closeMobileMenu() {
-        mobileMenuBtn.classList.remove('active');
-        navWorkspace.classList.remove('active');
-    }
+function closeMobileMenu() {
+    mobileMenuBtn.classList.remove('active');
+    navWorkspace.classList.remove('active');
+}
 
-    // स्क्रॉल एनीमेशन (प्रोग्रेस बार और फेड-इन इफेक्ट)
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-                const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
-                if(progressBars.length > 0) {
-                    progressBars.forEach(bar => { 
-                        bar.style.width = bar.getAttribute('data-progress'); 
-                    });
-                }
+// SCROLL SYSTEM WITH DYNAMIC INTERACTIVE GLOW RADIAL ENGINE
+window.addEventListener('scroll', () => {
+    const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    
+    const glow1X = 10 + (scrollPercent * 30);  
+    const glow1Y = 20 + (scrollPercent * 50);  
+    const glow2X = 90 - (scrollPercent * 40);  
+    const glow2Y = 80 - (scrollPercent * 60);
+
+    const op1 = 0.08 + (scrollPercent * 0.04);
+    const op2 = 0.05 + (scrollPercent * 0.07);
+    const op3 = 0.02 + (scrollPercent * 0.03);
+
+    document.body.style.setProperty('--bg-glow-x1', `${glow1X}%`);
+    document.body.style.setProperty('--bg-glow-y1', `${glow1Y}%`);
+    document.body.style.setProperty('--bg-glow-x2', `${glow2X}%`);
+    document.body.style.setProperty('--bg-glow-y2', `${glow2Y}%`);
+    
+    document.body.style.setProperty('--bg-opacity-1', op1);
+    document.body.style.setProperty('--bg-opacity-2', op2);
+    document.body.style.setProperty('--bg-opacity-3', op3);
+});
+
+// INTERSECTION OBSERVER FOR FADE SECTIONS & SKILL LOADING ANIMATION
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            
+            const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
+            if(progressBars.length > 0) {
+                progressBars.forEach(bar => {
+                    bar.style.width = bar.getAttribute('data-progress');
+                });
             }
-        });
-    }, { threshold: 0.05 });
+        }
+    });
+}, { threshold: 0.05 });
 
-    document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
+document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
+
+function filterPortfolio(category, buttonElement) {
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    buttonElement.classList.add('active');
+
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block';
+            setTimeout(() => item.style.opacity = '1', 50);
+        } else {
+            item.style.opacity = '0';
+            setTimeout(() => item.style.display = 'none', 300);
+        }
+    });
+}
+
+function openVideoModal(element, isShorts) {
+    const videoUrl = element.getAttribute('data-video');
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('modalIframe');
+    iframe.src = videoUrl + "?autoplay=1";
+    if (isShorts) modal.classList.add('shorts-active');
+    else modal.classList.remove('shorts-active');
+    modal.classList.add('active');
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('modalIframe');
+    modal.classList.remove('active');
+    iframe.src = "";
+}
+
+document.getElementById('creativeContactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    
+    let clientName = document.getElementById('name').value;
+    let clientPhone = document.getElementById('phone').value;
+    let clientEmail = document.getElementById('email').value;
+    let projectDetails = document.getElementById('message').value;
+    
+    let formattedText = `*🔥 New Project Brief Capture!* %0A%0A` + 
+                        `*👤 Name Authority:* ${encodeURIComponent(clientName)} %0A` + 
+                        `*📞 Phone Authority:* ${encodeURIComponent(clientPhone)} %0A` + 
+                        `*✉️ Email Authority:* ${encodeURIComponent(clientEmail)} %0A` + 
+                        `*📋 Strategic Details Authority:* ${encodeURIComponent(projectDetails)} %0A%0A` +
+                        `*🎁 Authority Offer claimed:* Free Auditing System!`;
+                        
+    let targetWhatsAppURL = `https://wa.me/917409105361?text=${formattedText}`;
+    window.open(targetWhatsAppURL, '_blank');
+});
 </script>
 </body>
 </html>
