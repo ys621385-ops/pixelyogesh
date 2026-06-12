@@ -792,64 +792,208 @@ nav a:hover {
 /* ==========================================================================
    2. MOBILE & TABLET STYLES (Max-Width: 968px)
    ========================================================================== */
+/* ======================================================== */
+/* MOBILE ONLY STYLE RULES (968px or lower) - OVERFLOW LOCK */
+/* ======================================================== */
 @media (max-width: 968px) {
+
+    /* 1. Global Screen Constraint & Extra Size Elimination */
+    html, body {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important; 
+        position: relative !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Layout responsive structures with strict boundary constraints */
+    main, .portfolio, .hero, section {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 15px 20px 30px 20px !important; 
+        box-sizing: border-box !important;
+        overflow: hidden !important; /* Extra container layout bleeding rokne ke liye */
+    }
+
+    /* Hero section manual upward correction & container containment */
+    .hero-left {
+        margin-top: -12px !important; 
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Text Handling: Letter-breaking fix & Manual Top Spacing Upgrades */
+    p, span, h1, h2, h3, h4, a {
+        white-space: normal !important;
+        word-break: normal !important;        
+        overflow-wrap: break-word !important; 
+        text-align: center !important;        
+        max-width: 100% !important; /* Text wrapping strictly within screen limits */
+    }
+
+    /* Hero main title auto-scale system with screen boundaries */
+    .hero-left h2 {
+        font-size: calc(1.8rem + 1vw) !important; 
+        line-height: 1.3 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 5px auto 15px auto !important; 
+        box-sizing: border-box !important;
+    }
+
+    /* Welcome subtitle specific alignment */
+    .hero-left p, .hero-left span {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* 3. Grid & Cards Size Optimization (image_870bf9, image_86b1f9, image_86ada4) */
+    .services-container, .grid-container, .skills-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; 
+        gap: 25px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-items: center !important; 
+        box-sizing: border-box !important;
+    }
+
+    /* Flexible layout system for individual card components */
+    .card, .service-card, .portfolio-card, .skills-card {
+        width: 100% !important;
+        max-width: 100% !important; /* Strict screen fallback control */
+        min-height: auto !important;  
+        margin: 0 auto !important;
+        padding: 24px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Image responsive bounding system (image_86b527) */
+    img, .portfolio-img, .thumbnail-img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+
+    /* ======================================================== */
+    /* 4. HEADER & MENU: Original Settings Kept Intact */
+    /* ======================================================== */
     header { 
-        padding: 15px 5%; 
+        position: sticky !important; 
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 1000 !important; 
+        background: #06070a !important; 
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 15px 5% !important; 
+        border-bottom: 1px solid rgba(168, 85, 247, 0.1) !important; 
+        box-sizing: border-box !important;
     }
 
     .brand-logo img { 
-        width: 35px; /* मोबाइल पर छोटा लोगो */
+        width: 32px !important; 
     }
-    
     .brand-logo h1 {
-        font-size: 1.2rem;
+        font-size: 1.1rem !important;
     }
 
     .menu-toggle { 
-        display: flex; /* मोबाइल पर हैमबर्गर बटन दिखेगा */
+        display: flex !important; 
+        flex-direction: column !important;
+        gap: 5px !important;
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        z-index: 1002 !important;
+    }
+    
+    .menu-toggle span {
+        display: block !important;
+        width: 25px !important;
+        height: 3px !important;
+        background-color: #fff !important;
+        transition: all 0.3s ease !important;
     }
 
-    /* मोबाइल मेनू स्क्रीन */
+    /* Dropdown UI System */
     nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        right: -100%; /* स्क्रीन के बाहर रहेगा */
-        width: 100vw;
-        height: 100vh;
-        background: rgba(6, 7, 10, 0.98);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
-        transition: right 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        z-index: 1001;
-        gap: 35px;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        
+        position: absolute !important;
+        top: 70px !important; 
+        right: 5% !important; 
+        width: 240px !important; 
+        height: auto !important; 
+        
+        background: #0d1117 !important; 
+        border-radius: 8px !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8) !important; 
+        border: 1px solid rgba(168, 85, 247, 0.2) !important; 
+        padding: 10px 0 !important; 
+        gap: 0 !important;
+        
+        opacity: 0 !important;
+        transform: translateY(-10px) !important;
+        pointer-events: none !important;
+        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        z-index: 1001 !important;
+        visibility: visible !important;
     }
 
-    /* जब मेनू एक्टिव होगा */
     nav.active { 
-        right: 0; 
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
     }
 
     nav a { 
-        font-size: 1.2rem; 
-        letter-spacing: 2px; 
-        color: #cbd5e1; 
+        width: 100% !important;
+        font-size: 0.92rem !important; 
+        font-weight: 500 !important;
+        letter-spacing: 0.5px !important; 
+        color: #cbd5e1 !important; 
+        text-align: left !important;
+        padding: 13px 20px !important; 
+        text-decoration: none !important;
+        border-bottom: 1px solid rgba(168, 85, 247, 0.1) !important; 
+        background: transparent !important;
+        border-radius: 0 !important;
+        transition: all 0.2s ease !important;
+        box-sizing: border-box !important;
     }
 
-    /* Hamburger Animation: क्लिक करने पर 'X' बनना */
+    nav a:last-child {
+        border-bottom: none !important;
+    }
+
+    nav a:hover, nav a:active {
+        background: rgba(168, 85, 247, 0.1) !important; 
+        color: #ffffff !important; 
+    }
+
+    /* Hamburger to X Trigger */
     .menu-toggle.open span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+        transform: translateY(8px) rotate(45deg) !important;
     }
-
     .menu-toggle.open span:nth-child(2) {
-        opacity: 0;
+        opacity: 0 !important;
     }
-
     .menu-toggle.open span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-8px) rotate(-45deg) !important;
     }
 }
     </style>
@@ -1219,96 +1363,173 @@ function closeMobileMenu() {
     mobileMenuBtn.classList.remove('active');
     navWorkspace.classList.remove('active');
 }
+// ========================================================
+// 1. CLEAN NEO-GLOW RADIAL ENGINE (PERFORMANCE OPTIMIZED)
+// ========================================================
+let scrollTimeout = false;
 
-// SCROLL SYSTEM WITH DYNAMIC INTERACTIVE GLOW RADIAL ENGINE
 window.addEventListener('scroll', () => {
-    const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-    
-    const glow1X = 10 + (scrollPercent * 30);  
-    const glow1Y = 20 + (scrollPercent * 50);  
-    const glow2X = 90 - (scrollPercent * 40);  
-    const glow2Y = 80 - (scrollPercent * 60);
+    if (!scrollTimeout) {
+        window.requestAnimationFrame(() => {
+            const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+            if (scrollTotal <= 0) return;
 
-    const op1 = 0.08 + (scrollPercent * 0.04);
-    const op2 = 0.05 + (scrollPercent * 0.07);
-    const op3 = 0.02 + (scrollPercent * 0.03);
+            const scrollPercent = window.scrollY / scrollTotal;
+            
+            // Balanced coordinates calculation
+            const glow1X = 10 + (scrollPercent * 30);  
+            const glow1Y = 20 + (scrollPercent * 50);  
+            const glow2X = 90 - (scrollPercent * 40);  
+            const glow2Y = 80 - (scrollPercent * 60);
 
-    document.body.style.setProperty('--bg-glow-x1', `${glow1X}%`);
-    document.body.style.setProperty('--bg-glow-y1', `${glow1Y}%`);
-    document.body.style.setProperty('--bg-glow-x2', `${glow2X}%`);
-    document.body.style.setProperty('--bg-glow-y2', `${glow2Y}%`);
-    
-    document.body.style.setProperty('--bg-opacity-1', op1);
-    document.body.style.setProperty('--bg-opacity-2', op2);
-    document.body.style.setProperty('--bg-opacity-3', op3);
-});
+            // Setting styling custom properties smoothly
+            document.body.style.setProperty('--bg-glow-x1', `${glow1X}%`);
+            document.body.style.setProperty('--bg-glow-y1', `${glow1Y}%`);
+            document.body.style.setProperty('--bg-glow-x2', `${glow2X}%`);
+            document.body.style.setProperty('--bg-glow-y2', `${glow2Y}%`);
+            
+            document.body.style.setProperty('--bg-opacity-1', 0.08 + (scrollPercent * 0.04));
+            document.body.style.setProperty('--bg-opacity-2', 0.05 + (scrollPercent * 0.07));
+            document.body.style.setProperty('--bg-opacity-3', 0.02 + (scrollPercent * 0.03));
 
-// INTERSECTION OBSERVER FOR FADE SECTIONS & SKILL LOADING ANIMATION
+            scrollTimeout = false;
+        });
+        scrollTimeout = true;
+    }
+}, { passive: true });
+
+
+// ========================================================
+// 2. STANDARD INTERSECTION OBSERVER (FADE-IN & SKILLS)
+// ========================================================
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
             
+            // Dynamic width rendering for skill metrics
             const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
-            if(progressBars.length > 0) {
+            if (progressBars.length > 0) {
                 progressBars.forEach(bar => {
                     bar.style.width = bar.getAttribute('data-progress');
                 });
             }
         }
     });
-}, { threshold: 0.05 });
+}, { 
+    threshold: 0.05,
+    rootMargin: "0px 0px -20px 0px"
+});
 
 document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
 
+
+// ========================================================
+// 3. FLUID PORTFOLIO FILTER SYSTEM (NO LAYOUT JUMPS)
+// ========================================================
 function filterPortfolio(category, buttonElement) {
+    if (!buttonElement) return;
+
+    // Toggle button active node state
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
     buttonElement.classList.add('active');
 
     document.querySelectorAll('.portfolio-item').forEach(item => {
-        if (category === 'all' || item.getAttribute('data-category') === category) {
+        const isMatch = category === 'all' || item.getAttribute('data-category') === category;
+
+        if (isMatch) {
             item.style.display = 'block';
-            setTimeout(() => item.style.opacity = '1', 50);
+            // Clean fade & scale entrance up
+            item.animate([
+                { opacity: 0, transform: 'scale(0.95) translateY(10px)' },
+                { opacity: 1, transform: 'scale(1) translateY(0)' }
+            ], {
+                duration: 350,
+                easing: 'ease-out',
+                fill: 'forwards'
+            });
         } else {
-            item.style.opacity = '0';
-            setTimeout(() => item.style.display = 'none', 300);
+            // Smooth exit transformation
+            const fadeOut = item.animate([
+                { opacity: 1, transform: 'scale(1) translateY(0)' },
+                { opacity: 0, transform: 'scale(0.95) translateY(10px)' }
+            ], {
+                duration: 200,
+                easing: 'ease-in',
+                fill: 'forwards'
+            });
+
+            fadeOut.onfinish = () => {
+                item.style.display = 'none';
+            };
         }
     });
 }
 
+
+// ========================================================
+// 4. PROFESSIONAL VIDEO MODAL CONTROLS
+// ========================================================
 function openVideoModal(element, isShorts) {
+    if (!element) return;
     const videoUrl = element.getAttribute('data-video');
     const modal = document.getElementById('videoModal');
     const iframe = document.getElementById('modalIframe');
-    iframe.src = videoUrl + "?autoplay=1";
-    if (isShorts) modal.classList.add('shorts-active');
-    else modal.classList.remove('shorts-active');
+    
+    if (!modal || !iframe) return;
+
+    // Premium streaming layout flags configuration
+    iframe.src = `${videoUrl}?autoplay=1&modestbranding=1&rel=0`;
+    
+    if (isShorts) {
+        modal.classList.add('shorts-active');
+    } else {
+        modal.classList.remove('shorts-active');
+    }
+    
     modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevents layout back-scrolling
 }
 
 function closeVideoModal() {
     const modal = document.getElementById('videoModal');
     const iframe = document.getElementById('modalIframe');
+    
+    if (!modal || !iframe) return;
+
     modal.classList.remove('active');
     iframe.src = "";
+    document.body.style.overflow = ''; // Restores global page viewport scrolling
 }
 
-document.getElementById('creativeContactForm').addEventListener('submit', function(event) {
+// Close popup safely when backdrop mask area is tapped
+document.getElementById('videoModal')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeVideoModal();
+    }
+});
+
+
+// ========================================================
+// 5. SECURE WHATSAPP REDIRECT ROUTER
+// ========================================================
+document.getElementById('creativeContactForm')?.addEventListener('submit', function(event) {
     event.preventDefault(); 
     
-    let clientName = document.getElementById('name').value;
-    let clientPhone = document.getElementById('phone').value;
-    let clientEmail = document.getElementById('email').value;
-    let projectDetails = document.getElementById('message').value;
+    const clientName = document.getElementById('name')?.value || '';
+    const clientPhone = document.getElementById('phone')?.value || '';
+    const clientEmail = document.getElementById('email')?.value || '';
+    const projectDetails = document.getElementById('message')?.value || '';
     
-    let formattedText = `*🔥 New Project Brief Capture!* %0A%0A` + 
-                        `*👤 Name Authority:* ${encodeURIComponent(clientName)} %0A` + 
-                        `*📞 Phone Authority:* ${encodeURIComponent(clientPhone)} %0A` + 
-                        `*✉️ Email Authority:* ${encodeURIComponent(clientEmail)} %0A` + 
-                        `*📋 Strategic Details Authority:* ${encodeURIComponent(projectDetails)} %0A%0A` +
-                        `*🎁 Authority Offer claimed:* Free Auditing System!`;
-                        
-    let targetWhatsAppURL = `https://wa.me/917409105361?text=${formattedText}`;
+    // Constructing standard readable text parameters safely
+    const formattedText = `*🔥 New Project Brief Capture!* \n\n` + 
+                          `*👤 Name Authority:* ${clientName}\n` + 
+                          `*📞 Phone Authority:* ${clientPhone}\n` + 
+                          `*✉️ Email Authority:* ${clientEmail}\n` + 
+                          `*📋 Strategic Details Authority:* ${projectDetails}\n\n` +
+                          `*🎁 Authority Offer claimed:* Free Auditing System!`;
+                          
+    const targetWhatsAppURL = `https://wa.me/917409105361?text=${encodeURIComponent(formattedText)}`;
     window.open(targetWhatsAppURL, '_blank');
 });
 </script>
