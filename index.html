@@ -25,7 +25,313 @@
 <meta property="og:type" content="website">
 
 </head>
+<div class="modal-overlay" id="pricingModal">
+    <div class="pricing-card">
+        <button class="btn-close-custom" onclick="closeModal()">✕</button>
+        
+        <h3 class="card-title m-0">Our Services & Plans</h3>
+        <p class="card-subtitle mt-1 mb-3">Select Monthly Subscription or One-Time Work to proceed.</p>
 
+        <div class="offer-banner">
+            🚀 <strong>Combo Offer:</strong> Choose Monthly & get Website Maintenance + Logo Design 100% FREE!
+        </div>
+
+        <div class="nav-tabs-custom">
+            <button class="tab-btn active" onclick="switchTab(event, 'monthly-tab')">Monthly Packages</button>
+            <button class="tab-btn" onclick="switchTab(event, 'onetime-tab')">One-Time Work (1 Work)</button>
+        </div>
+
+        <div id="monthly-tab" class="tab-content active">
+            <table class="custom-table">
+                <tbody>
+                    <tr onclick="toggleSelect(this)">
+                        <td width="50">
+                            <input type="checkbox" class="form-check-input service-check" data-name="Starter Growth Plan" data-price="1999" onclick="event.stopPropagation(); calculateTotal()">
+                        </td>
+                        <td>
+                            <div class="plan-name-main">Starter Growth Plan</div>
+                            <div class="plan-desc-sub">✓ 1 Logo Design & Brand Identity<br>✓ 5 Social Media Graphics<br>✓ 2 HD Reels/Shorts Editing</div>
+                        </td>
+                        <td class="text-nowrap text-end">
+                            <div class="plan-price">₹1,999</div>
+                            <span class="per-sub">/month</span>
+                        </td>
+                    </tr>
+                    <tr onclick="toggleSelect(this)" class="featured-row-border">
+                        <td>
+                            <input type="checkbox" class="form-check-input service-check" data-name="Business Digital Plan" data-price="4499" onclick="event.stopPropagation(); calculateTotal()">
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="plan-name-main">Business Digital Plan</span>
+                                <span class="badge-popular">Best Value</span>
+                            </div>
+                            <div class="plan-desc-sub">✓ 1 Basic Website + Free Maintenance<br>✓ 12 High-Converting SM Posts<br>✓ 6 Engaging Reels/Videos</div>
+                        </td>
+                        <td class="text-nowrap text-end">
+                            <div class="plan-price feature-price">₹4,499</div>
+                            <span class="per-sub">/month</span>
+                        </td>
+                    </tr>
+                    <tr onclick="toggleSelect(this)">
+                        <td>
+                            <input type="checkbox" class="form-check-input service-check" data-name="Premium Elite Agency Plan" data-price="8999" onclick="event.stopPropagation(); calculateTotal()">
+                        </td>
+                        <td>
+                            <div class="plan-name-main">Premium Elite Agency Plan</div>
+                            <div class="plan-desc-sub">✓ 1 E-Commerce/Business Website<br>✓ 25 Premium SM Posts & Stories<br>✓ 12 Cinematic Videos + Script Support</div>
+                        </td>
+                        <td class="text-nowrap text-end">
+                            <div class="plan-price">₹8,999</div>
+                            <span class="per-sub">/month</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="onetime-tab" class="tab-content">
+            <table class="custom-table">
+                <tbody>
+                    <tr onclick="toggleSelect(this)">
+                        <td width="50">
+                            <input type="checkbox" class="form-check-input service-check" data-name="Basic Website" data-price="3000" onclick="event.stopPropagation(); calculateTotal()">
+                        </td>
+                        <td>
+                            <div class="plan-name-main">Basic Website Development</div>
+                            <div class="plan-desc-sub">Clean, responsive corporate landing page</div>
+                        </td>
+                        <td class="text-nowrap text-end"><div>₹3,000</div><span class="per-sub">/once</span></td>
+                    </tr>
+                    <tr onclick="toggleSelect(this)">
+                        <td>
+                            <input type="checkbox" class="form-check-input service-check" data-name="Business Website" data-price="5000" onclick="event.stopPropagation(); calculateTotal()">
+                        </td>
+                        <td>
+                            <div class="plan-name-main">Business E-Commerce Website</div>
+                            <div class="plan-desc-sub">Advanced features with WhatsApp integration</div>
+                        </td>
+                        <td class="text-nowrap text-end"><div>₹5,000</div><span class="per-sub">/once</span></td>
+                    </tr>
+                    <tr onclick="toggleSelect(this)">
+                        <td>
+                            <input type="checkbox" class="form-check-input service-check" data-name="Logo Design" data-price="499" onclick="event.stopPropagation(); calculateTotal()">
+                        </td>
+                        <td>
+                            <div class="plan-name-main">Premium Logo Design</div>
+                            <div class="plan-desc-sub">High-res vector formats & brand identity</div>
+                        </td>
+                        <td class="text-nowrap text-end"><div>₹499</div><span class="per-sub">/once</span></td>
+                    </tr>
+                    <tr onclick="toggleSelect(this)">
+                        <td>
+                            <input type="checkbox" class="form-check-input service-check" data-name="Social Media Post" data-price="199" onclick="event.stopPropagation(); calculateTotal()">
+                        </td>
+                        <td>
+                            <div class="plan-name-main">Single Social Media Post</div>
+                            <div class="plan-desc-sub">High contrast dynamic graphic post</div>
+                        </td>
+                        <td class="text-nowrap text-end"><div>₹199</div><span class="per-sub">/once</span></td>
+                    </tr>
+                    <tr onclick="toggleSelect(this)">
+                        <td>
+                            <input type="checkbox" class="form-check-input service-check" data-name="Video Editing" data-price="299" onclick="event.stopPropagation(); calculateTotal()">
+                        </td>
+                        <td>
+                            <div class="plan-name-main">Cinematic Video Editing</div>
+                            <div class="plan-desc-sub">Dynamic transitions, text animations & audio sync</div>
+                        </td>
+                        <td class="text-nowrap text-end"><div>₹299</div><span class="per-sub">/once</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="summary-box">
+            <span class="total-label">Estimated Total Summary</span>
+            <span class="total-val" id="priceDisplay">₹0</span>
+        </div>
+
+        <button class="btn-action" onclick="submitOrder()">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.948h.008c4.368 0 7.928-3.561 7.93-7.93a7.9 7.9 0 0 0-2.332-5.592m-5.604 11.948a6.5 6.5 0 0 1-3.301-.904l-.237-.14-2.458.645.658-2.398-.154-.245A6.5 6.5 0 0 1 1.439 7.927c0-3.571 2.931-6.502 6.516-6.502 1.734 0 3.363.675 4.59 1.903a6.5 6.5 0 0 1 1.912 4.59c-.002 3.572-2.93 6.503-6.514 6.503m3.604-4.912c-.197-.099-1.162-.574-1.341-.64-.179-.065-.31-.099-.44.099-.133.197-.513.64-.63.774-.117.135-.232.15-.429.051-.197-.101-.83-.306-1.58-.976-.583-.52-1.013-1.162-1.127-1.355-.115-.197-.012-.303.088-.401.09-.089.197-.23.296-.346.1-.117.133-.198.198-.33.065-.134.034-.251-.017-.35-.052-.099-.44-1.06-.603-1.45-.159-.383-.334-.33-.46-.337-.118-.006-.254-.007-.39-.007a.75.75 0 0 0-.544.254c-.18.197-.686.67-.686 1.637s.703 1.903.801 2.035c.099.132 1.38 2.108 3.342 2.957.467.202.83.322 1.114.413.469.149.896.128 1.234.078.376-.056 1.162-.474 1.327-.931.165-.456.165-.847.116-.931-.049-.083-.18-.132-.377-.231"/></svg>
+            Claim Free Consultation & Order
+        </button>
+    </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    .modal-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px);
+        display: flex; justify-content: center; align-items: center;
+        z-index: 99999; opacity: 0; pointer-events: none;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    
+    .pricing-card {
+        width: 100%; max-width: 620px; background: #ffffff; border-radius: 24px;
+        border: 1px solid rgba(226, 232, 240, 0.8); padding: 32px; position: relative;
+        box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+        transform: translateY(30px) scale(0.95); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-overlay.active .pricing-card { transform: translateY(0) scale(1); }
+    
+    .btn-close-custom {
+        position: absolute; top: 24px; right: 24px; background: #f1f5f9;
+        border: none; width: 32px; height: 32px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        color: #64748b; font-size: 18px; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-close-custom:hover { background: #e2e8f0; color: #0f172a; }
+    
+    .card-title { font-family: 'Inter', sans-serif; font-weight: 700; color: #0f172a; letter-spacing: -0.5px; }
+    .card-subtitle { font-family: 'Inter', sans-serif; color: #64748b; font-size: 14px; }
+    
+    /* Idea 1: Offer Banner Styling */
+    .offer-banner {
+        background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+        border-left: 4px solid #6366f1; border-radius: 8px;
+        padding: 10px 14px; font-size: 13px; color: #4338ca; margin-bottom: 16px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .nav-tabs-custom { display: flex; background: #f1f5f9; padding: 6px; border-radius: 12px; margin-bottom: 20px; }
+    .tab-btn {
+        flex: 1; border: none; background: transparent; padding: 10px; font-size: 14px;
+        font-weight: 600; color: #64748b; border-radius: 8px; transition: all 0.2s;
+    }
+    .tab-btn.active { background: #ffffff; color: #4f46e5; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    
+    .tab-content { display: none; max-height: 300px; overflow-y: auto; padding-right: 4px; }
+    .tab-content.active { display: block; }
+    
+    .custom-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
+    .custom-table tr { transition: all 0.2s; cursor: pointer; }
+    .custom-table tbody tr:hover { transform: translateY(-1px); }
+    
+    .custom-table td {
+        background: #f8fafc; padding: 16px 20px; font-family: 'Inter', sans-serif;
+        border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9;
+    }
+    .custom-table td:first-child { border-left: 1px solid #f1f5f9; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+    .custom-table td:last-child { border-right: 1px solid #f1f5f9; border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
+    
+    .plan-name-main { font-weight: 700; color: #0f172a; font-size: 15px; }
+    .plan-desc-sub { font-size: 12px; color: #64748b; margin-top: 6px; font-weight: 400; line-height: 1.6; }
+    .plan-price { font-weight: 700; color: #0f172a; font-size: 16px; }
+    .feature-price { color: #4f46e5 !important; }
+    .per-sub { font-size: 11px; color: #94a3b8; font-weight: 400; }
+
+    .badge-popular {
+        background: #eeebff; color: #4f46e5; font-size: 11px; font-weight: 600;
+        padding: 2px 8px; border-radius: 20px; border: 1px solid #d9d4ff;
+    }
+    
+    /* Highlighted Best Value Row Style */
+    .featured-row-border td { border-top: 1px solid #c7d2fe !important; border-bottom: 1px solid #c7d2fe !important; background: #fafbff; }
+    .featured-row-border td:first-child { border-left: 1px solid #c7d2fe !important; }
+    .featured-row-border td:last-child { border-right: 1px solid #c7d2fe !important; }
+
+    .form-check-input { width: 18px; height: 18px; border: 2px solid #cbd5e1; cursor: pointer; }
+    .form-check-input:checked { background-color: #6366f1; border-color: #6366f1; }
+    
+    .custom-table tr.selected-row td { background: #eeebff !important; border-color: #d9d4ff !important; }
+    .custom-table tr.selected-row td:last-child, .custom-table tr.selected-row .plan-name-main { color: #4f46e5; }
+    
+    .tab-content::-webkit-scrollbar { width: 5px; }
+    .tab-content::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+    .tab-content::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+    .summary-box {
+        background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px;
+        padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; margin-top: 20px;
+    }
+    .total-label { font-size: 14px; color: #64748b; font-weight: 500; }
+    .total-val { font-size: 24px; font-weight: 700; color: #0f172a; }
+    
+    .btn-action {
+        width: 100%; background: #25d366; color: #ffffff; border: none; padding: 14px;
+        border-radius: 12px; font-size: 16px; font-weight: 600; margin-top: 16px;
+        box-shadow: 0 10px 20px -10px rgba(37, 211, 102, 0.4); transition: all 0.2s;
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-action:hover { background: #1fbe5a; box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.5); transform: translateY(-1px); }
+</style>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            document.getElementById('pricingModal').classList.add('active');
+        }, 5000); // Trigger Popup after 5 seconds
+    });
+
+    function closeModal() { document.getElementById('pricingModal').classList.remove('active'); }
+
+    function switchTab(evt, tabId) {
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        const tabLinks = document.querySelectorAll('.tab-btn');
+        tabLinks.forEach(link => link.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        evt.currentTarget.classList.add('active');
+    }
+
+    function toggleSelect(row) {
+        const checkbox = row.querySelector('.service-check');
+        checkbox.checked = !checkbox.checked;
+        if(checkbox.checked) row.classList.add('selected-row');
+        else row.classList.remove('selected-row');
+        calculateTotal();
+    }
+
+    function calculateTotal() {
+        const checkboxes = document.querySelectorAll('.service-check');
+        let total = 0;
+        
+        checkboxes.forEach(cb => {
+            const row = cb.closest('tr');
+            if(cb.checked) {
+                row.classList.add('selected-row');
+                total += parseInt(cb.getAttribute('data-price'));
+            } else {
+                row.classList.remove('selected-row');
+            }
+        });
+        document.getElementById('priceDisplay').innerText = '₹' + total.toLocaleString('en-IN');
+    }
+
+    function submitOrder() {
+        const checkboxes = document.querySelectorAll('.service-check');
+        let selectedPlans = [];
+        let total = 0;
+
+        checkboxes.forEach(cb => {
+            if (cb.checked) {
+                const planType = cb.closest('.tab-content').id === 'monthly-tab' ? '/mo' : '/once';
+                selectedPlans.push(`${cb.getAttribute('data-name')} (₹${cb.getAttribute('data-price')}${planType})`);
+                total += parseInt(cb.getAttribute('data-price'));
+            }
+        });
+
+        if (selectedPlans.length === 0) {
+            alert('Please select at least one Plan or Service to proceed.');
+            return;
+        }
+
+        const myNumber = "919999999999"; // <-- यहाँ अपना असली 10 अंकों का नंबर 91 लगाकर डालें
+        let msg = `Hello! I would like to lock the FREE consultation and confirm my order:\n\n`;
+        selectedPlans.forEach((item, index) => msg += `${index + 1}. ${item}\n`);
+        msg += `\n*Total Order Estimate: ₹${total}*`;
+
+        window.open(`https://wa.me/${myNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+</script>
 <body>
     <style>
         .fade-up
@@ -1269,313 +1575,6 @@ nav a:hover {
     
 }
     </style>
-    <div class="modal-overlay" id="pricingModal">
-    <div class="pricing-card">
-        <button class="btn-close-custom" onclick="closeModal()">✕</button>
-        
-        <h3 class="card-title m-0">Our Services & Plans</h3>
-        <p class="card-subtitle mt-1 mb-3">Select Monthly Subscription or One-Time Work to proceed.</p>
-
-        <div class="offer-banner">
-            🚀 <strong>Combo Offer:</strong> Choose Monthly & get Website Maintenance + Logo Design 100% FREE!
-        </div>
-
-        <div class="nav-tabs-custom">
-            <button class="tab-btn active" onclick="switchTab(event, 'monthly-tab')">Monthly Packages</button>
-            <button class="tab-btn" onclick="switchTab(event, 'onetime-tab')">One-Time Work (1 Work)</button>
-        </div>
-
-        <div id="monthly-tab" class="tab-content active">
-            <table class="custom-table">
-                <tbody>
-                    <tr onclick="toggleSelect(this)">
-                        <td width="50">
-                            <input type="checkbox" class="form-check-input service-check" data-name="Starter Growth Plan" data-price="1999" onclick="event.stopPropagation(); calculateTotal()">
-                        </td>
-                        <td>
-                            <div class="plan-name-main">Starter Growth Plan</div>
-                            <div class="plan-desc-sub">✓ 1 Logo Design & Brand Identity<br>✓ 5 Social Media Graphics<br>✓ 2 HD Reels/Shorts Editing</div>
-                        </td>
-                        <td class="text-nowrap text-end">
-                            <div class="plan-price">₹1,999</div>
-                            <span class="per-sub">/month</span>
-                        </td>
-                    </tr>
-                    <tr onclick="toggleSelect(this)" class="featured-row-border">
-                        <td>
-                            <input type="checkbox" class="form-check-input service-check" data-name="Business Digital Plan" data-price="4499" onclick="event.stopPropagation(); calculateTotal()">
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center gap-2">
-                                <span class="plan-name-main">Business Digital Plan</span>
-                                <span class="badge-popular">Best Value</span>
-                            </div>
-                            <div class="plan-desc-sub">✓ 1 Basic Website + Free Maintenance<br>✓ 12 High-Converting SM Posts<br>✓ 6 Engaging Reels/Videos</div>
-                        </td>
-                        <td class="text-nowrap text-end">
-                            <div class="plan-price feature-price">₹4,499</div>
-                            <span class="per-sub">/month</span>
-                        </td>
-                    </tr>
-                    <tr onclick="toggleSelect(this)">
-                        <td>
-                            <input type="checkbox" class="form-check-input service-check" data-name="Premium Elite Agency Plan" data-price="8999" onclick="event.stopPropagation(); calculateTotal()">
-                        </td>
-                        <td>
-                            <div class="plan-name-main">Premium Elite Agency Plan</div>
-                            <div class="plan-desc-sub">✓ 1 E-Commerce/Business Website<br>✓ 25 Premium SM Posts & Stories<br>✓ 12 Cinematic Videos + Script Support</div>
-                        </td>
-                        <td class="text-nowrap text-end">
-                            <div class="plan-price">₹8,999</div>
-                            <span class="per-sub">/month</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div id="onetime-tab" class="tab-content">
-            <table class="custom-table">
-                <tbody>
-                    <tr onclick="toggleSelect(this)">
-                        <td width="50">
-                            <input type="checkbox" class="form-check-input service-check" data-name="Basic Website" data-price="3000" onclick="event.stopPropagation(); calculateTotal()">
-                        </td>
-                        <td>
-                            <div class="plan-name-main">Basic Website Development</div>
-                            <div class="plan-desc-sub">Clean, responsive corporate landing page</div>
-                        </td>
-                        <td class="text-nowrap text-end"><div>₹3,000</div><span class="per-sub">/once</span></td>
-                    </tr>
-                    <tr onclick="toggleSelect(this)">
-                        <td>
-                            <input type="checkbox" class="form-check-input service-check" data-name="Business Website" data-price="5000" onclick="event.stopPropagation(); calculateTotal()">
-                        </td>
-                        <td>
-                            <div class="plan-name-main">Business E-Commerce Website</div>
-                            <div class="plan-desc-sub">Advanced features with WhatsApp integration</div>
-                        </td>
-                        <td class="text-nowrap text-end"><div>₹5,000</div><span class="per-sub">/once</span></td>
-                    </tr>
-                    <tr onclick="toggleSelect(this)">
-                        <td>
-                            <input type="checkbox" class="form-check-input service-check" data-name="Logo Design" data-price="499" onclick="event.stopPropagation(); calculateTotal()">
-                        </td>
-                        <td>
-                            <div class="plan-name-main">Premium Logo Design</div>
-                            <div class="plan-desc-sub">High-res vector formats & brand identity</div>
-                        </td>
-                        <td class="text-nowrap text-end"><div>₹499</div><span class="per-sub">/once</span></td>
-                    </tr>
-                    <tr onclick="toggleSelect(this)">
-                        <td>
-                            <input type="checkbox" class="form-check-input service-check" data-name="Social Media Post" data-price="199" onclick="event.stopPropagation(); calculateTotal()">
-                        </td>
-                        <td>
-                            <div class="plan-name-main">Single Social Media Post</div>
-                            <div class="plan-desc-sub">High contrast dynamic graphic post</div>
-                        </td>
-                        <td class="text-nowrap text-end"><div>₹199</div><span class="per-sub">/once</span></td>
-                    </tr>
-                    <tr onclick="toggleSelect(this)">
-                        <td>
-                            <input type="checkbox" class="form-check-input service-check" data-name="Video Editing" data-price="299" onclick="event.stopPropagation(); calculateTotal()">
-                        </td>
-                        <td>
-                            <div class="plan-name-main">Cinematic Video Editing</div>
-                            <div class="plan-desc-sub">Dynamic transitions, text animations & audio sync</div>
-                        </td>
-                        <td class="text-nowrap text-end"><div>₹299</div><span class="per-sub">/once</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="summary-box">
-            <span class="total-label">Estimated Total Summary</span>
-            <span class="total-val" id="priceDisplay">₹0</span>
-        </div>
-
-        <button class="btn-action" onclick="submitOrder()">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.948h.008c4.368 0 7.928-3.561 7.93-7.93a7.9 7.9 0 0 0-2.332-5.592m-5.604 11.948a6.5 6.5 0 0 1-3.301-.904l-.237-.14-2.458.645.658-2.398-.154-.245A6.5 6.5 0 0 1 1.439 7.927c0-3.571 2.931-6.502 6.516-6.502 1.734 0 3.363.675 4.59 1.903a6.5 6.5 0 0 1 1.912 4.59c-.002 3.572-2.93 6.503-6.514 6.503m3.604-4.912c-.197-.099-1.162-.574-1.341-.64-.179-.065-.31-.099-.44.099-.133.197-.513.64-.63.774-.117.135-.232.15-.429.051-.197-.101-.83-.306-1.58-.976-.583-.52-1.013-1.162-1.127-1.355-.115-.197-.012-.303.088-.401.09-.089.197-.23.296-.346.1-.117.133-.198.198-.33.065-.134.034-.251-.017-.35-.052-.099-.44-1.06-.603-1.45-.159-.383-.334-.33-.46-.337-.118-.006-.254-.007-.39-.007a.75.75 0 0 0-.544.254c-.18.197-.686.67-.686 1.637s.703 1.903.801 2.035c.099.132 1.38 2.108 3.342 2.957.467.202.83.322 1.114.413.469.149.896.128 1.234.078.376-.056 1.162-.474 1.327-.931.165-.456.165-.847.116-.931-.049-.083-.18-.132-.377-.231"/></svg>
-            Claim Free Consultation & Order
-        </button>
-    </div>
-</div>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-    .modal-overlay {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px);
-        display: flex; justify-content: center; align-items: center;
-        z-index: 99999; opacity: 0; pointer-events: none;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .modal-overlay.active { opacity: 1; pointer-events: auto; }
-    
-    .pricing-card {
-        width: 100%; max-width: 620px; background: #ffffff; border-radius: 24px;
-        border: 1px solid rgba(226, 232, 240, 0.8); padding: 32px; position: relative;
-        box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
-        transform: translateY(30px) scale(0.95); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .modal-overlay.active .pricing-card { transform: translateY(0) scale(1); }
-    
-    .btn-close-custom {
-        position: absolute; top: 24px; right: 24px; background: #f1f5f9;
-        border: none; width: 32px; height: 32px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        color: #64748b; font-size: 18px; cursor: pointer; transition: all 0.2s;
-    }
-    .btn-close-custom:hover { background: #e2e8f0; color: #0f172a; }
-    
-    .card-title { font-family: 'Inter', sans-serif; font-weight: 700; color: #0f172a; letter-spacing: -0.5px; }
-    .card-subtitle { font-family: 'Inter', sans-serif; color: #64748b; font-size: 14px; }
-    
-    /* Idea 1: Offer Banner Styling */
-    .offer-banner {
-        background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
-        border-left: 4px solid #6366f1; border-radius: 8px;
-        padding: 10px 14px; font-size: 13px; color: #4338ca; margin-bottom: 16px;
-        font-family: 'Inter', sans-serif;
-    }
-
-    .nav-tabs-custom { display: flex; background: #f1f5f9; padding: 6px; border-radius: 12px; margin-bottom: 20px; }
-    .tab-btn {
-        flex: 1; border: none; background: transparent; padding: 10px; font-size: 14px;
-        font-weight: 600; color: #64748b; border-radius: 8px; transition: all 0.2s;
-    }
-    .tab-btn.active { background: #ffffff; color: #4f46e5; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-    
-    .tab-content { display: none; max-height: 300px; overflow-y: auto; padding-right: 4px; }
-    .tab-content.active { display: block; }
-    
-    .custom-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
-    .custom-table tr { transition: all 0.2s; cursor: pointer; }
-    .custom-table tbody tr:hover { transform: translateY(-1px); }
-    
-    .custom-table td {
-        background: #f8fafc; padding: 16px 20px; font-family: 'Inter', sans-serif;
-        border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9;
-    }
-    .custom-table td:first-child { border-left: 1px solid #f1f5f9; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
-    .custom-table td:last-child { border-right: 1px solid #f1f5f9; border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
-    
-    .plan-name-main { font-weight: 700; color: #0f172a; font-size: 15px; }
-    .plan-desc-sub { font-size: 12px; color: #64748b; margin-top: 6px; font-weight: 400; line-height: 1.6; }
-    .plan-price { font-weight: 700; color: #0f172a; font-size: 16px; }
-    .feature-price { color: #4f46e5 !important; }
-    .per-sub { font-size: 11px; color: #94a3b8; font-weight: 400; }
-
-    .badge-popular {
-        background: #eeebff; color: #4f46e5; font-size: 11px; font-weight: 600;
-        padding: 2px 8px; border-radius: 20px; border: 1px solid #d9d4ff;
-    }
-    
-    /* Highlighted Best Value Row Style */
-    .featured-row-border td { border-top: 1px solid #c7d2fe !important; border-bottom: 1px solid #c7d2fe !important; background: #fafbff; }
-    .featured-row-border td:first-child { border-left: 1px solid #c7d2fe !important; }
-    .featured-row-border td:last-child { border-right: 1px solid #c7d2fe !important; }
-
-    .form-check-input { width: 18px; height: 18px; border: 2px solid #cbd5e1; cursor: pointer; }
-    .form-check-input:checked { background-color: #6366f1; border-color: #6366f1; }
-    
-    .custom-table tr.selected-row td { background: #eeebff !important; border-color: #d9d4ff !important; }
-    .custom-table tr.selected-row td:last-child, .custom-table tr.selected-row .plan-name-main { color: #4f46e5; }
-    
-    .tab-content::-webkit-scrollbar { width: 5px; }
-    .tab-content::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
-    .tab-content::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-
-    .summary-box {
-        background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px;
-        padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; margin-top: 20px;
-    }
-    .total-label { font-size: 14px; color: #64748b; font-weight: 500; }
-    .total-val { font-size: 24px; font-weight: 700; color: #0f172a; }
-    
-    .btn-action {
-        width: 100%; background: #25d366; color: #ffffff; border: none; padding: 14px;
-        border-radius: 12px; font-size: 16px; font-weight: 600; margin-top: 16px;
-        box-shadow: 0 10px 20px -10px rgba(37, 211, 102, 0.4); transition: all 0.2s;
-        display: flex; align-items: center; justify-content: center; gap: 8px;
-    }
-    .btn-action:hover { background: #1fbe5a; box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.5); transform: translateY(-1px); }
-</style>
-
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-            document.getElementById('pricingModal').classList.add('active');
-        }, 5000); // Trigger Popup after 5 seconds
-    });
-
-    function closeModal() { document.getElementById('pricingModal').classList.remove('active'); }
-
-    function switchTab(evt, tabId) {
-        const tabContents = document.querySelectorAll('.tab-content');
-        tabContents.forEach(content => content.classList.remove('active'));
-
-        const tabLinks = document.querySelectorAll('.tab-btn');
-        tabLinks.forEach(link => link.classList.remove('active'));
-
-        document.getElementById(tabId).classList.add('active');
-        evt.currentTarget.classList.add('active');
-    }
-
-    function toggleSelect(row) {
-        const checkbox = row.querySelector('.service-check');
-        checkbox.checked = !checkbox.checked;
-        if(checkbox.checked) row.classList.add('selected-row');
-        else row.classList.remove('selected-row');
-        calculateTotal();
-    }
-
-    function calculateTotal() {
-        const checkboxes = document.querySelectorAll('.service-check');
-        let total = 0;
-        
-        checkboxes.forEach(cb => {
-            const row = cb.closest('tr');
-            if(cb.checked) {
-                row.classList.add('selected-row');
-                total += parseInt(cb.getAttribute('data-price'));
-            } else {
-                row.classList.remove('selected-row');
-            }
-        });
-        document.getElementById('priceDisplay').innerText = '₹' + total.toLocaleString('en-IN');
-    }
-
-    function submitOrder() {
-        const checkboxes = document.querySelectorAll('.service-check');
-        let selectedPlans = [];
-        let total = 0;
-
-        checkboxes.forEach(cb => {
-            if (cb.checked) {
-                const planType = cb.closest('.tab-content').id === 'monthly-tab' ? '/mo' : '/once';
-                selectedPlans.push(`${cb.getAttribute('data-name')} (₹${cb.getAttribute('data-price')}${planType})`);
-                total += parseInt(cb.getAttribute('data-price'));
-            }
-        });
-
-        if (selectedPlans.length === 0) {
-            alert('Please select at least one Plan or Service to proceed.');
-            return;
-        }
-
-        const myNumber = "919999999999"; // <-- यहाँ अपना असली 10 अंकों का नंबर 91 लगाकर डालें
-        let msg = `Hello! I would like to lock the FREE consultation and confirm my order:\n\n`;
-        selectedPlans.forEach((item, index) => msg += `${index + 1}. ${item}\n`);
-        msg += `\n*Total Order Estimate: ₹${total}*`;
-
-        window.open(`https://wa.me/${myNumber}?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-</script>
 </head>
 <body>
 
