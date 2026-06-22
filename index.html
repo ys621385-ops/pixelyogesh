@@ -1862,6 +1862,134 @@ nav a:hover {
             </div>
         </div>
     </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reel Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #0b0f1a;
+    color: white;
+}
+
+/* Grid */
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Thumbnail Card */
+.card {
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Play Icon */
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 15px;
+    border-radius: 50%;
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Video Frame */
+.popup video {
+    width: 360px;
+    height: 640px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h2 style="text-align:center;">My Reels  🔥</h2>
+
+<div class="portfolio">
+
+    <!-- CARD 1 -->
+    <div class="card" onclick="openVideo('https://www.instagram.com/reel/DZjwJqvv3x7/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==')">
+        <img src="thumb1.jpg">
+        <div class="play">▶</div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card" onclick="openVideo('video2.mp4')">
+        <img src="thumb2.jpg">
+        <div class="play">▶</div>
+    </div>
+
+</div>
+
+<!-- POPUP PLAYER -->
+<div class="popup" id="popup">
+    <span class="close" onclick="closeVideo()">✖</span>
+    <video id="videoPlayer" controls autoplay></video>
+</div>
+
+<script>
+function openVideo(src) {
+    let popup = document.getElementById("popup");
+    let video = document.getElementById("videoPlayer");
+
+    video.src = src;
+    popup.style.display = "flex";
+}
+
+function closeVideo() {
+    let popup = document.getElementById("popup");
+    let video = document.getElementById("videoPlayer");
+
+    video.pause();
+    video.src = "";
+    popup.style.display = "none";
+}
+</script>
+
+</body>
+</html>
 </section>
 
 <div class="video-modal" id="videoModal" onclick="closeVideoModal()">
