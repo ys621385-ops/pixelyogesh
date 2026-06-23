@@ -26,361 +26,13 @@
 
 <div class="modal-overlay" id="pricingModal">
     <div class="pricing-card">
-       <button class="btn-close-custom" onclick="closeModal()">✕</button>
-        
-<h3 class="card-title m-0">Our Services & Plans</h3>
-<p class="card-subtitle mt-1 mb-2">Select Monthly Subscription or One-Time Work to proceed.</p>
+      
 
-<div class="offer-banner">
-    🚀 <strong>Combo Offer:</strong> Choose Monthly & get Website Maintenance + Logo Design 100% FREE!
-</div>
 
-<div class="nav-tabs-custom">
-    <button class="tab-btn active" onclick="switchTab(event, 'monthly-tab')">Monthly Packages</button>
-    <button class="tab-btn" onclick="switchTab(event, 'onetime-tab')">One-Time Work</button>
-</div>
-
-<div class="whatsapp-container" style="text-align: center; margin-top: 20px;">
-    <a href="https://wa.me/917409105361?text=Hi,%20I%20am%20interested%20in%20your%20Services%20and%20Plans!" 
-       target="_blank" 
-       class="btn-whatsapp" 
-       style="display: inline-flex; align-items: center; justify-content: center; background-color: #25D366; color: white; text-decoration: none; padding: 10px 20px; border-radius: 30px; font-weight: bold; font-family: sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
-            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.618-4.954c-.199-.1-.1.193-.52-.076-.423-.21-.714-.311-.795-.452-.079-.141-.079-.241.04-.399.117-.16.513-.64.63-.819.117-.179.233-.308.04-.51-.192-.202-.773-1.874-.959-2.324-.187-.452-.371-.39-.51-.397-.13-.006-.28-.008-.431-.008s-.396.057-.604.281c-.208.225-.792.775-.792 1.89s.817 2.194.931 2.348c.114.154 1.61 2.458 3.9 3.448.544.235.968.376 1.3.483.546.174 1.043.149 1.436.09.439-.065 1.344-.549 1.534-1.055.19-.506.19-.939.132-1.033-.058-.094-.213-.146-.413-.246"/>
-        </svg>
-        Chat on WhatsApp
-    </a>
-</div>
-
-        <div id="monthly-tab" class="tab-content active">
-            <div class="responsive-grid">
-                <div class="grid-card-row" onclick="toggleSelect(this)">
-                    <div class="check-wrapper">
-                        <input type="checkbox" class="form-check-input service-check" data-name="Starter Growth Plan" data-price="1999" onclick="event.stopPropagation(); calculateTotal()">
-                    </div>
-                    <div class="plan-info">
-                        <div class="plan-name-main">Starter Growth</div>
-                        <div class="plan-desc-sub">✓ 1 Logo & Identity<br>✓ 5 SM Graphics<br>✓ 2 HD Reels</div>
-                    </div>
-                    <div class="price-info">
-                        <div class="plan-price">₹1,999</div>
-                        <span class="per-sub">/mo</span>
-                    </div>
-                </div>
-
-                <div class="grid-card-row featured-row-border" onclick="toggleSelect(this)">
-                    <div class="check-wrapper">
-                        <input type="checkbox" class="form-check-input service-check" data-name="Business Digital Plan" data-price="4499" onclick="event.stopPropagation(); calculateTotal()">
-                        <span class="badge-popular">Best Value</span>
-                    </div>
-                    <div class="plan-info">
-                        <div class="plan-name-main">Business Digital</div>
-                        <div class="plan-desc-sub">✓ 1 Website + Maint.<br>✓ 12 High-Conv SM<br>✓ 6 Videos/Reels</div>
-                    </div>
-                    <div class="price-info">
-                        <div class="plan-price feature-price">₹4,499</div>
-                        <span class="per-sub">/mo</span>
-                    </div>
-                </div>
-
-                <div class="grid-card-row" onclick="toggleSelect(this)">
-                    <div class="check-wrapper">
-                        <input type="checkbox" class="form-check-input service-check" data-name="Premium Elite Agency Plan" data-price="8999" onclick="event.stopPropagation(); calculateTotal()">
-                    </div>
-                    <div class="plan-info">
-                        <div class="plan-name-main">Premium Elite</div>
-                        <div class="plan-desc-sub">✓ 1 E-Com Website<br>✓ 25 Premium SM<br>✓ 12 Cinematic Videos</div>
-                    </div>
-                    <div class="price-info">
-                        <div class="plan-price">₹8,999</div>
-                        <span class="per-sub">/mo</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="onetime-tab" class="tab-content">
-            <div class="responsive-grid">
-                <div class="grid-card-row" onclick="toggleSelect(this)">
-                    <div class="check-wrapper">
-                        <input type="checkbox" class="form-check-input service-check" data-name="Basic Website" data-price="3000" onclick="event.stopPropagation(); calculateTotal()">
-                    </div>
-                    <div class="plan-info">
-                        <div class="plan-name-main">Basic Website</div>
-                        <div class="plan-desc-sub">Corporate landing page.</div>
-                    </div>
-                    <div class="price-info">
-                        <div class="plan-price">₹3,000</div>
-                        <span class="per-sub">/once</span>
-                    </div>
-                </div>
-
-                <div class="grid-card-row" onclick="toggleSelect(this)">
-                    <div class="check-wrapper">
-                        <input type="checkbox" class="form-check-input service-check" data-name="Business Website" data-price="5000" onclick="event.stopPropagation(); calculateTotal()">
-                    </div>
-                    <div class="plan-info">
-                        <div class="plan-name-main">E-Com Website</div>
-                        <div class="plan-desc-sub">WhatsApp Integration.</div>
-                    </div>
-                    <div class="price-info">
-                        <div class="plan-price">₹5,000</div>
-                        <span class="per-sub">/once</span>
-                    </div>
-                </div>
-
-                <div class="grid-card-row" onclick="toggleSelect(this)">
-                    <div class="check-wrapper">
-                        <input type="checkbox" class="form-check-input service-check" data-name="Logo Design" data-price="499" onclick="event.stopPropagation(); calculateTotal()">
-                    </div>
-                    <div class="plan-info">
-                        <div class="plan-name-main">Premium Logo</div>
-                        <div class="plan-desc-sub">Vector formats & identity.</div>
-                    </div>
-                    <div class="price-info">
-                        <div class="plan-price">₹499</div>
-                        <span class="per-sub">/once</span>
-                    </div>
-                </div>
-
-                <div class="grid-card-row" onclick="toggleSelect(this)">
-                    <div class="check-wrapper">
-                        <input type="checkbox" class="form-check-input service-check" data-name="Social Media Post" data-price="199" onclick="event.stopPropagation(); calculateTotal()">
-                    </div>
-                    <div class="plan-info">
-                        <div class="plan-name-main">SM Graphic Post</div>
-                        <div class="plan-desc-sub">High contrast dynamic design.</div>
-                    </div>
-                    <div class="price-info">
-                        <div class="plan-price">₹199</div>
-                        <span class="per-sub">/once</span>
-                    </div>
-                </div>
-
-                <div class="grid-card-row" onclick="toggleSelect(this)">
-                    <div class="check-wrapper">
-                        <input type="checkbox" class="form-check-input service-check" data-name="Video Editing" data-price="299" onclick="event.stopPropagation(); calculateTotal()">
-                    </div>
-                    <div class="plan-info">
-                        <div class="plan-name-main">Video Editing</div>
-                        <div class="plan-desc-sub">Transitions & Audio Sync.</div>
-                    </div>
-                    <div class="price-info">
-                        <div class="plan-price">₹299</div>
-                        <span class="per-sub">/once</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="summary-box">
-            <span class="total-label">Estimated Total</span>
-            <span class="total-val" id="priceDisplay">₹0</span>
-        </div>
-
-        <button class="btn-action" onclick="submitOrder()">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.948h.008c4.368 0 7.928-3.561 7.93-7.93a7.9 7.9 0 0 0-2.332-5.592m-5.604 11.948a6.5 6.5 0 0 1-3.301-.904l-.237-.14-2.458.645.658-2.398-.154-.245A6.5 6.5 0 0 1 1.439 7.927c0-3.571 2.931-6.502 6.516-6.502 1.734 0 3.363.675 4.59 1.903a6.5 6.5 0 0 1 1.912 4.59c-.002 3.572-2.93 6.503-6.514 6.503m3.604-4.912c-.197-.099-1.162-.574-1.341-.64-.179-.065-.31-.099-.44.099-.133.197-.513.64-.63.774-.117.135-.232.15-.429.051-.197-.101-.83-.306-1.58-.976-.583-.52-1.013-1.162-1.127-1.355-.115-.197-.012-.303.088-.401.09-.089.197-.23.296-.346.1-.117.133-.198.198-.33.065-.134.034-.251-.017-.35-.052-.099-.44-1.06-.603-1.45-.159-.383-.334-.33-.46-.337-.118-.006-.254-.007-.39-.007a.75.75 0 0 0-.544.254c-.18.197-.686.67-.686 1.637s.703 1.903.801 2.035c.099.132 1.38 2.108 3.342 2.957.467.202.83.322 1.114.413.469.149.896.128 1.234.078.376-.056 1.162-.474 1.327-.931.165-.456.165-.847.116-.931-.049-.083-.18-.132-.377-.231"/></svg>
-            Claim Free Consultation & Order
-        </button>
-    </div>
-</div>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-    /* Global Overlay Design */
-    .modal-overlay {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(8px);
-        display: flex; justify-content: center; align-items: center;
-        z-index: 99999; opacity: 0; pointer-events: none;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        padding: 20px; overflow-y: auto;
-    }
-    .modal-overlay.active { opacity: 1; pointer-events: auto; }
-    
-    /* Desktop Structural Card Layout */
-    .pricing-card {
-        width: 100%; max-width: 620px; background: #ffffff; border-radius: 24px;
-        border: 1px solid rgba(226, 232, 240, 0.8); padding: 28px; position: relative;
-        box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
-        transform: translateY(30px) scale(0.95); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        max-height: calc(100vh - 40px); display: flex; flex-direction: column;
-    }
-    .modal-overlay.active .pricing-card { transform: translateY(0) scale(1); }
-    
-    .btn-close-custom {
-        position: absolute; top: 22px; right: 22px; background: #f1f5f9;
-        border: none; width: 32px; height: 32px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        color: #64748b; font-size: 16px; cursor: pointer; transition: all 0.2s; z-index: 10;
-    }
-    .btn-close-custom:hover { background: #e2e8f0; color: #0f172a; }
-    
-    .card-title { font-family: 'Inter', sans-serif; font-weight: 700; color: #0f172a; letter-spacing: -0.5px; padding-right: 30px; }
-    .card-subtitle { font-family: 'Inter', sans-serif; color: #64748b; font-size: 14px; }
-    
-    .offer-banner {
-        background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
-        border-left: 4px solid #6366f1; border-radius: 8px;
-        padding: 10px 14px; font-size: 13px; color: #4338ca; margin-bottom: 12px;
-        font-family: 'Inter', sans-serif; flex-shrink: 0;
-    }
-
-    .nav-tabs-custom { display: flex; background: #f1f5f9; padding: 5px; border-radius: 12px; margin-bottom: 12px; flex-shrink: 0; }
-    .tab-btn {
-        flex: 1; border: none; background: transparent; padding: 8px; font-size: 14px;
-        font-weight: 600; color: #64748b; border-radius: 8px; transition: all 0.2s;
-    }
-    .tab-btn.active { background: #ffffff; color: #4f46e5; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-    
-    .tab-content { display: none; overflow-y: auto; max-height: 290px; padding-right: 4px; -webkit-overflow-scrolling: touch; }
-    .tab-content.active { display: block; }
-    
-    /* Grid Box System for Items */
-    .responsive-grid { display: flex; flex-direction: column; gap: 10px; }
-    .grid-card-row {
-        background: #f8fafc; border: 1px solid #f1f5f9; border-radius: 14px;
-        padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;
-        gap: 12px; cursor: pointer; transition: all 0.2s; position: relative;
-    }
-    .grid-card-row:hover { transform: translateY(-1px); border-color: #cbd5e1; }
-    
-    .check-wrapper { display: flex; align-items: center; gap: 8px; }
-    .form-check-input { cursor: pointer; width: 18px; height: 18px; margin: 0; flex-shrink: 0; }
-    .plan-info { flex-grow: 1; font-family: 'Inter', sans-serif; }
-    .plan-name-main { font-weight: 700; color: #0f172a; font-size: 15px; }
-    .plan-desc-sub { font-size: 12px; color: #64748b; margin-top: 4px; font-weight: 400; line-height: 1.5; }
-    
-    .price-info { text-align: right; font-family: 'Inter', sans-serif; flex-shrink: 0; }
-    .plan-price { font-weight: 700; color: #0f172a; font-size: 16px; }
-    .feature-price { color: #4f46e5; }
-    .per-sub { font-size: 12px; color: #64748b; font-weight: 400; }
-
-    .summary-box {
-        display: flex; justify-content: space-between; align-items: center;
-        background: #f8fafc; padding: 12px 18px; border-radius: 12px;
-        margin-top: 12px; border: 1px dashed #cbd5e1;
-        font-family: 'Inter', sans-serif; flex-shrink: 0;
-    }
-    .total-label { font-size: 13px; font-weight: 600; color: #475569; }
-    .total-val { font-size: 18px; font-weight: 700; color: #0f172a; }
-
-    .btn-action {
-        width: 100%; background: #25d366; color: white; border: none;
-        padding: 12px; border-radius: 12px; font-size: 14px; font-weight: 600;
-        margin-top: 12px; display: flex; align-items: center; justify-content: center;
-        gap: 8px; transition: all 0.2s; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
-        font-family: 'Inter', sans-serif; flex-shrink: 0;
-    }
-    .btn-action:hover { background: #20ba59; transform: translateY(-1px); }
-
-    .badge-popular {
-        background: #e0e7ff; color: #4f46e5; font-size: 10px; font-weight: 600;
-        padding: 2px 6px; border-radius: 99px; font-family: 'Inter', sans-serif;
-    }
-
-    /* 40% Space Optimization Media Query for Mobile Screen */
-    @media (max-width: 576px) {
-        .modal-overlay { padding: 8px; }
-        .pricing-card { padding: 16px 12px 12px 12px !important; border-radius: 16px !important; max-height: calc(100vh - 16px); }
-        .btn-close-custom { top: 12px !important; right: 12px !important; width: 26px !important; height: 26px !important; font-size: 12px !important; }
-        .card-title { font-size: 16px !important; padding-right: 20px; }
-        .card-subtitle { font-size: 11px !important; margin-bottom: 8px !important; }
-        .offer-banner { font-size: 11px !important; padding: 6px 10px !important; margin-bottom: 8px !important; border-left-width: 3px; }
-        
-        .nav-tabs-custom { padding: 3px !important; margin-bottom: 8px !important; border-radius: 8px !important; }
-        .tab-btn { padding: 6px 2px !important; font-size: 12px !important; border-radius: 6px !important; }
-        
-        /* Max-Height reduced to save critical view height area */
-        .tab-content { max-height: calc(100vh - 240px) !important; padding-right: 1px !important; }
-
-        /* 2-Column Compact Layout to reduce height by 40% */
-        .responsive-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
-        
-        .grid-card-row {
-            flex-direction: column !important; align-items: flex-start !important;
-            justify-content: space-between !important; padding: 10px !important;
-            border-radius: 10px !important; gap: 6px !important; min-height: 115px;
-        }
-        
-        /* Repositioning internal elements into grid cells securely */
-        .check-wrapper { width: 100%; justify-content: space-between; align-items: center; }
-        .form-check-input { width: 16px; height: 16px; order: 2; } /* Shifted right for easy thumb tap */
-        .badge-popular { order: 1; font-size: 9px !important; padding: 1px 4px !important; }
-
-        .plan-info { width: 100%; }
-        .plan-name-main { font-size: 12.5px !important; line-height: 1.2; }
-        .plan-desc-sub { font-size: 10.5px !important; line-height: 1.3 !important; margin-top: 3px !important; }
-        
-        .price-info { text-align: left !important; width: 100%; display: flex; align-items: baseline; gap: 3px; border-top: 1px dashed #e2e8f0; padding-top: 4px; }
-        .plan-price { font-size: 13px !important; }
-        .per-sub { font-size: 10.5px !important; }
-
-        .summary-box { padding: 10px 12px !important; margin-top: 8px !important; border-radius: 8px !important; }
-        .total-label { font-size: 11.5px !important; }
-        .total-val { font-size: 16px !important; }
-        .btn-action { padding: 10px !important; font-size: 13px !important; margin-top: 8px !important; border-radius: 8px !important; }
-    }
-</style>
-
-<script>
-    // 5.5 Seconds Delay
-    window.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-            document.getElementById('pricingModal').classList.add('active');
-        }, 5500);
-    });
-
-    function closeModal() {
-        document.getElementById('pricingModal').classList.remove('active');
-    }
-
-    function switchTab(event, tabId) {
-        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-
-    // Row Box Click Selection Fix
-    function toggleSelect(element) {
-        let checkbox = element.querySelector('.service-check');
-        checkbox.checked = !checkbox.checked;
-        calculateTotal();
-    }
-
-    function calculateTotal() {
-        let total = 0;
-        document.querySelectorAll('.service-check:checked').forEach(checkbox => {
-            total += parseInt(checkbox.getAttribute('data-price'));
-        });
-        document.getElementById('priceDisplay').innerText = '₹' + total.toLocaleString('en-IN');
-    }
-
-    function submitOrder() {
-        let totalPrice = document.getElementById('priceDisplay').innerText;
-        let selectedPlans = [];
-        
-        document.querySelectorAll('.service-check:checked').forEach(checkbox => {
-            selectedPlans.push(checkbox.getAttribute('data-name'));
-        });
-
-        if(selectedPlans.length === 0) {
-            alert("Please select at least one plan to proceed!");
-            return;
-        }
-
-        let urlParams = new URLSearchParams();
-        urlParams.append('total', totalPrice);
-        urlParams.append('plans', selectedPlans.join(', '));
-
-        window.open('order.html?' + urlParams.toString(), '_blank');
-    }
-</script>
 <body>
+    
     <style>
+        
         .fade-up
        br /* GLOBAL CYBERPUNK DARK SYSTEM STYLES */
         * {
@@ -1178,8 +830,9 @@
         /* RESPONSIVE MEDIA SYSTEM */
        /* ==========================================================================
    1. LAPTOP / DESKTOP STYLES (Base Styles)
-   ========================================================================== */
+    ========================================================================== */
 header {
+
     position: fixed;
     top: 0;
     left: 0;
@@ -1261,6 +914,8 @@ nav a:hover {
     background-color: #ffffff;
     border-radius: 2px;
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+    
 }
 
 
@@ -1270,6 +925,7 @@ nav a:hover {
 /* ======================================================== */
 /* MOBILE ONLY STYLE RULES (968px or lower) - OVERFLOW LOCK */
 /* ======================================================== */
+
 @media (max-width: 968px) {
 
     /* 1. Global Screen Constraint & Extra Size Elimination */
@@ -1624,7 +1280,114 @@ nav a:hover {
     </style>
 </head>
 <body>
+<!-- SERVICE POPUP START -->
+<div id="servicePopup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">×</span>
 
+        <h2>🚀 Our Services</h2>
+        <p>Website, Design, Video Editing & AI Solutions</p>
+
+        <div class="popup-services">
+            <div>🌐 Website - ₹3000</div>
+            <div>🏢 Business Website - ₹5000</div>
+            <div>🎨 Logo Design - ₹499</div>
+            <div>📱 Social Media Post - ₹199</div>
+            <div>🎬 Video Editing - ₹299</div>
+        </div>
+
+        <a href="https://wa.me/917409105361?text=Hello%20I%20want%20your%20services"
+           target="_blank"
+           class="popup-btn">
+           💬 Contact on WhatsApp
+        </a>
+    </div>
+</div>
+
+<style>
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.popup-content{
+    background:#0f172a;
+    color:#fff;
+    padding:25px;
+    width:90%;
+    max-width:400px;
+    border-radius:15px;
+    text-align:center;
+    position:relative;
+    animation:fadeIn 0.4s ease;
+}
+
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.popup-services div{
+    margin:10px 0;
+    color:#ccc;
+    font-size:14px;
+}
+
+.popup-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
+}
+
+/* Mobile Optimization */
+@media(max-width:600px){
+    .popup-content{
+        padding:20px;
+    }
+
+    .popup-services div{
+        font-size:13px;
+    }
+}
+</style>
+
+<script>
+// Agar pehle show nahi hua tabhi show kare
+if(!localStorage.getItem("popupShown")){
+    setTimeout(function(){
+        document.getElementById("servicePopup").style.display = "flex";
+        localStorage.setItem("popupShown", "true");
+    }, 5000);
+}
+
+// Close function
+function closePopup(){
+    document.getElementById("servicePopup").style.display = "none";
+}
+</script>
+<!-- SERVICE POPUP END -->
+ 
 <header>
     <a href="#home" class="brand-logo">
         <img src="yc logo.png" alt="YC Logo">
@@ -1989,7 +1752,535 @@ body {
 }
 </style>
 </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium WhatsApp Order Popup V3 - Combo Offers</title>
+    
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --surface-dark: #141414;
+            --border-color: #2a2a2a;
+            --cyan-neon: #00ffff;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --discount-red: #ff3366;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            height: 200vh;
+        }
+
+        /* --- Popup Overlay --- */
+        .premium-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .premium-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- Popup Container --- */
+        .premium-popup-box {
+            background: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 450px;
+            padding: 30px 24px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.05);
+            transform: scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .premium-popup-overlay.active .premium-popup-box {
+            transform: scale(1);
+        }
+
+        /* --- Close Button --- */
+        .popup-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 26px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .popup-close:hover {
+            color: var(--cyan-neon);
+        }
+
+        /* --- Headers --- */
+        .popup-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .popup-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+        }
+
+        .popup-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* --- Tabs --- */
+        .tabs-container {
+            display: flex;
+            background: var(--bg-dark);
+            border-radius: 8px;
+            padding: 4px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--cyan-neon);
+        }
+
+        /* --- Service Cards --- */
+        .service-list-container {
+            max-height: 250px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 5px;
+        }
+
+        /* Custom Scrollbar */
+        .service-list-container::-webkit-scrollbar {
+            width: 5px;
+        }
+        .service-list-container::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 10px;
+        }
+
+        .service-list {
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-list.active {
+            display: flex;
+        }
+
+        .service-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(0, 255, 255, 0.4);
+        }
+
+        .service-card.selected {
+            border-color: var(--cyan-neon);
+            background: rgba(0, 255, 255, 0.05);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+        }
+
+        .service-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .service-name { font-weight: 600; font-size: 15px; }
+        .service-desc { font-size: 11px; color: var(--text-muted); font-weight: 400; }
+        
+        .price-box {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 11px;
+            margin-bottom: 2px;
+        }
+
+        .service-price { font-weight: 700; color: var(--cyan-neon); font-size: 15px; }
+        .service-price small { font-size: 11px; font-weight: normal; }
+
+        .badge-popular {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--cyan-neon);
+            color: #000;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-bottom-left-radius: 8px;
+            text-transform: uppercase;
+        }
+
+        .badge-discount {
+            background: var(--discount-red);
+            color: #fff;
+        }
+
+        /* --- Form Inputs --- */
+        .input-group { margin-bottom: 12px; }
+
+        .popup-input, .popup-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .popup-input:focus, .popup-textarea:focus {
+            outline: none;
+            border-color: var(--cyan-neon);
+        }
+
+        .popup-textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        /* --- Action Buttons --- */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .submit-btn {
+            flex: 2;
+            background: var(--cyan-neon);
+            color: #000000;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn:hover {
+            background: #00cccc;
+            transform: translateY(-2px);
+        }
+
+        .call-btn {
+            flex: 1;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .call-btn:hover {
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .error-msg {
+            color: #ff4444;
+            font-size: 13px;
+            margin-bottom: 10px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="premium-popup-overlay" id="waPopupOverlay">
+        <div class="premium-popup-box">
+            <button class="popup-close" id="waPopupClose" aria-label="Close">&times;</button>
+            
+            <div class="popup-header">
+                <h2 class="popup-title">🔥 Choose Your Plan</h2>
+                <p class="popup-subtitle">Select a service to get started</p>
+            </div>
+
+            <div class="tabs-container">
+                <button class="tab-btn active" data-target="onetime">One-Time</button>
+                <button class="tab-btn" data-target="monthly">Monthly Combos</button>
+            </div>
+
+            <div class="error-msg" id="formError">Please select a plan and enter your name.</div>
+
+            <div class="service-list-container">
+                
+                <!-- One Time Services -->
+                <div class="service-list active" id="onetime">
+                    <div class="service-card" data-plan="Thumbnail Design" data-price="₹199">
+                        <div class="service-info"><span class="service-name">YouTube Thumbnail</span></div>
+                        <span class="service-price">₹199</span>
+                    </div>
+                    <div class="service-card" data-plan="Social Media Post" data-price="₹199">
+                        <div class="service-info"><span class="service-name">Social Media Post</span></div>
+                        <span class="service-price">₹199</span>
+                    </div>
+                    <div class="service-card" data-plan="Instagram Reel" data-price="₹250">
+                        <div class="service-info"><span class="service-name">Instagram Reel</span></div>
+                        <span class="service-price">₹250</span>
+                    </div>
+                    <div class="service-card" data-plan="Banner Design" data-price="₹399">
+                        <div class="service-info"><span class="service-name">Banner Design</span></div>
+                        <span class="service-price">₹399</span>
+                    </div>
+                    <div class="service-card" data-plan="Logo Design" data-price="₹499">
+                        <div class="badge-popular">Hot</div>
+                        <div class="service-info"><span class="service-name">Logo Design</span></div>
+                        <span class="service-price">₹499</span>
+                    </div>
+                    <div class="service-card" data-plan="Basic Website" data-price="₹3000">
+                        <div class="service-info"><span class="service-name">Basic Website</span></div>
+                        <span class="service-price">₹3000</span>
+                    </div>
+                    <div class="service-card" data-plan="Pro Website" data-price="₹5000">
+                        <div class="service-info"><span class="service-name">Pro Website</span></div>
+                        <span class="service-price">₹5000</span>
+                    </div>
+                </div>
+
+                <!-- Monthly Combos (WITH DISCOUNTS) -->
+                <div class="service-list" id="monthly">
+                    
+                    <!-- Combo 1 -->
+                    <div class="service-card" data-plan="Starter Combo" data-price="₹4999/mo">
+                        <div class="badge-popular badge-discount">20% OFF</div>
+                        <div class="service-info">
+                            <span class="service-name">Starter Combo</span>
+                            <span class="service-desc">15 Posts + Social Media Mgmt</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="price-old">₹6250</span>
+                            <span class="service-price">₹4999<small>/mo</small></span>
+                        </div>
+                    </div>
+
+                    <!-- Combo 2 -->
+                    <div class="service-card" data-plan="Pro Growth Combo" data-price="₹6999/mo">
+                        <div class="badge-popular badge-discount">25% OFF</div>
+                        <div class="service-info">
+                            <span class="service-name">Pro Growth Combo</span>
+                            <span class="service-desc">Posts + Reels + SEO Booster</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="price-old">₹9300</span>
+                            <span class="service-price">₹6999<small>/mo</small></span>
+                        </div>
+                    </div>
+
+                    <!-- Combo 3 -->
+                    <div class="service-card" data-plan="Ultimate Business Combo" data-price="₹9999/mo">
+                        <div class="badge-popular badge-discount">33% OFF</div>
+                        <div class="service-info">
+                            <span class="service-name">Ultimate Combo</span>
+                            <span class="service-desc">All Graphic Design + SEO + Web Maint.</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="price-old">₹14999</span>
+                            <span class="service-price">₹9999<small>/mo</small></span>
+                        </div>
+                    </div>
+
+                    <!-- Single Standard Monthly -->
+                    <div class="service-card" data-plan="Website Maintenance" data-price="₹999/mo">
+                        <div class="service-info">
+                            <span class="service-name">Web Maintenance</span>
+                            <span class="service-desc">Updates, Backups & Security</span>
+                        </div>
+                        <span class="service-price" style="display:flex; align-items:center;">₹999<small>/mo</small></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="userName" class="popup-input" placeholder="Your Name *" required autocomplete="off">
+            </div>
+            <div class="input-group">
+                <textarea id="userReq" class="popup-textarea" placeholder="Your Requirement (Optional)"></textarea>
+            </div>
+
+            <div class="action-buttons">
+                <button class="call-btn" id="callBtn">
+                    📞 Call
+                </button>
+                <button class="submit-btn" id="waSubmitBtn">
+                    📲 WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // === CONFIGURATION ===
+            const phoneNumber = "7409105361"; // Your Number
+            const whatsappNumber = "91" + phoneNumber; // For WhatsApp
+            
+            // DOM Elements
+            const overlay = document.getElementById('waPopupOverlay');
+            const closeBtn = document.getElementById('waPopupClose');
+            const serviceCards = document.querySelectorAll('.service-card');
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const serviceLists = document.querySelectorAll('.service-list');
+            const orderBtn = document.getElementById('waSubmitBtn');
+            const callBtn = document.getElementById('callBtn');
+            const nameInput = document.getElementById('userName');
+            const reqInput = document.getElementById('userReq');
+            const errorMsg = document.getElementById('formError');
+
+            let selectedPlan = null;
+            let selectedPrice = null;
+
+            // 1. Auto Open
+            setTimeout(() => overlay.classList.add('active'), 5000);
+
+            // 2. Close Popup
+            const closePopup = () => overlay.classList.remove('active');
+            closeBtn.addEventListener('click', closePopup);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closePopup();
+            });
+
+            // 3. Tab Switching Logic
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active from all tabs and lists
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    serviceLists.forEach(l => l.classList.remove('active'));
+                    
+                    // Clear selection when switching tabs
+                    serviceCards.forEach(c => c.classList.remove('selected'));
+                    selectedPlan = null; selectedPrice = null;
+                    errorMsg.style.display = 'none';
+
+                    // Activate clicked tab and corresponding list
+                    btn.classList.add('active');
+                    document.getElementById(btn.dataset.target).classList.add('active');
+                });
+            });
+
+            // 4. Card Selection
+            serviceCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    serviceCards.forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedPlan = this.getAttribute('data-plan');
+                    selectedPrice = this.getAttribute('data-price');
+                    errorMsg.style.display = 'none';
+                });
+            });
+
+            // 5. Direct Call Action
+            callBtn.addEventListener('click', () => {
+                window.location.href = `tel:+91${phoneNumber}`;
+            });
+
+            // 6. WhatsApp Submit Action
+            orderBtn.addEventListener('click', () => {
+                const userName = nameInput.value.trim();
+                const userReq = reqInput.value.trim();
+
+                if (!selectedPlan || !userName) {
+                    errorMsg.style.display = 'block';
+                    document.querySelector('.premium-popup-box').animate([
+                        { transform: 'scale(1) translateX(-5px)' },
+                        { transform: 'scale(1) translateX(5px)' },
+                        { transform: 'scale(1) translateX(0px)' }
+                    ], { duration: 300 });
+                    return;
+                }
+
+                let message = `Hello 👋\n*Name:* ${userName}\n*Selected Plan:* ${selectedPlan} (${selectedPrice})\n`;
+                if (userReq) message += `*Requirement:* ${userReq}`;
+
+                const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                window.open(waUrl, '_blank');
+                closePopup();
+            });
+        });
+    </script>
+
+</body>
+</html>
 <body>
 
 <h2 style="text-align:center;">My Reels  🔥</h2>
